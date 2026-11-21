@@ -1,48 +1,31 @@
-{%- import "icons.njk" as icons -%}
 {%- set s = copy.services -%}
-<section id="{{ s.id or 'services' }}" class="section">
-  <div class="wrap stack-lg">
-    <header class="section-head">
-      {%- if s.eyebrow %}<p class="eyebrow">{{ s.eyebrow }}</p>{% endif %}
-      <h2 class="h2">{{ s.heading }}</h2>
-    </header>
+<section id="{{ s.id or 'services' }}" class="section" aria-labelledby="h-services">
+  <div class="col">
+    <h2 class="section__heading" id="h-services">{{ s.heading }}</h2>
+    {%- if s.body %}<div class="prose">{{ s.body | md | safe }}</div>{% endif %}
 
-    <div class="grid grid--cards">
-      {%- for card in s.cards %}
-      <article class="card service-card"{% if card.id %} id="{{ card.id }}"{% endif %}>
-        <div class="icon-tile">{{ icons.icon(card.icon) | safe }}</div>
-        <h3 class="h3">{{ card.title }}</h3>
-        {%- if card.intro %}<p class="muted">{{ card.intro | mdInline | safe }}</p>{% endif %}
-        {%- if card.items and card.items.length %}
-        <ul class="list">
-          {%- for item in card.items %}<li>{{ item | mdInline | safe }}</li>{% endfor %}
-        </ul>
-        {%- endif %}
-        {%- if card.groups and card.groups.length %}
-        <div class="grid grid--groups">
-          {%- for g in card.groups %}
-          <div class="group">
-            <h4 class="group__title">{{ g.title }}</h4>
-            <ul class="list list--sm">
-              {%- for item in g.items %}<li>{{ item | mdInline | safe }}</li>{% endfor %}
-            </ul>
-          </div>
-          {%- endfor %}
-        </div>
-        {%- endif %}
-      </article>
-      {%- endfor %}
-    </div>
+    {%- for svc in s.services %}
+    <div class="service"{% if svc.id %} id="{{ svc.id }}"{% endif %}>
+      <h3 class="service__title">{{ svc.title }}</h3>
+      {%- if svc.intro %}<p class="service__intro">{{ svc.intro | mdInline | safe }}</p>{% endif %}
 
-    {%- if s.software and s.software.items.length %}
-    <div class="chip-row">
-      <span class="chip-row__label">{{ s.software.label }}</span>
-      <ul>
-        {%- for sw in s.software.items %}<li class="chip">{{ sw }}</li>{% endfor %}
+      {%- if svc.items and svc.items.length %}
+      <ul class="list">
+        {%- for item in svc.items %}<li>{{ item | mdInline | safe }}</li>{% endfor %}
       </ul>
-    </div>
-    {%- endif %}
+      {%- endif %}
 
-    {%- if s.body %}<div class="prose muted">{{ s.body | md | safe }}</div>{% endif %}
+      {%- for g in svc.groups %}
+      <h4 class="service__group">{{ g.title }}</h4>
+      <ul class="list">
+        {%- for item in g.items %}<li>{{ item | mdInline | safe }}</li>{% endfor %}
+      </ul>
+      {%- endfor %}
+
+      {%- if svc.software and svc.software.items.length %}
+      <p class="software"><span class="software__label">{{ svc.software.label }}</span> {{ svc.software.items | join(" · ") }}</p>
+      {%- endif %}
+    </div>
+    {%- endfor %}
   </div>
 </section>

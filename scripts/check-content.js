@@ -20,13 +20,10 @@ const isBlank = (v) => v == null || (typeof v === "string" && v.trim() === "") |
 
 // Required fields per file.
 const REQUIRED = {
-  "site.yml": [site, ["name", "url", "location", "seo.title", "seo.description", "contact.email", "logo.mark", "menu", "menu_button.label", "sections"]],
-  "hero.md": [copy.hero, ["heading", "body", "buttons"]],
-  "services.md": [copy.services, ["heading", "cards"]],
-  "process.md": [copy.process, ["heading", "steps"]],
+  "site.yml": [site, ["name", "tagline", "url", "seo.title", "seo.description", "contact.email", "logo.mark", "footer.descriptor", "sections"]],
   "about.md": [copy.about, ["heading", "body"]],
-  "contact.md": [copy.contact, ["heading", "body", "form.submit", "form.countries", "form.services"]],
-  "thanks.md": [copy.thanks, ["heading", "body"]],
+  "services.md": [copy.services, ["heading", "services"]],
+  "contact.md": [copy.contact, ["heading", "labels.email"]],
   "notfound.md": [copy.notfound, ["heading", "body"]],
 };
 for (const [file, [obj, fields]] of Object.entries(REQUIRED)) {
@@ -35,7 +32,7 @@ for (const [file, [obj, fields]] of Object.entries(REQUIRED)) {
 }
 
 // Every section listed in site.yml must have a file and a template.
-const known = ["hero", "services", "process", "about", "contact"];
+const known = ["about", "services", "contact"];
 for (const s of site.sections || []) {
   if (!known.includes(s)) errors.push(`site.yml: unknown section "${s}" (use one of: ${known.join(", ")})`);
 }
@@ -43,15 +40,15 @@ for (const s of site.sections || []) {
 // Formats.
 const email = get(site, "contact.email");
 if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push(`site.yml: contact.email "${email}" is not a valid email`);
-for (const f of ["url", "contact.linkedin", "contact.calendly"]) {
+for (const f of ["url", "contact.linkedin"]) {
   const v = get(site, f);
   if (v && !/^https:\/\/\S+$/.test(v)) errors.push(`site.yml: "${f}" must be a full https:// address`);
 }
 
-// Card lists in services.md.
-(copy.services?.cards || []).forEach((c, i) => {
-  if (isBlank(c.title)) errors.push(`services.md: card ${i + 1} needs a title`);
-  if (isBlank(c.items) && isBlank(c.groups)) errors.push(`services.md: card ${i + 1} needs "items" or "groups"`);
+// Service blocks in services.md.
+(copy.services?.services || []).forEach((c, i) => {
+  if (isBlank(c.title)) errors.push(`services.md: service ${i + 1} needs a title`);
+  if (isBlank(c.items) && isBlank(c.groups)) errors.push(`services.md: service ${i + 1} needs "items" or "groups"`);
 });
 
 // Body text: keep formatting to bold, italic, links and lists.
@@ -76,11 +73,8 @@ function scan(value, where) {
 }
 scan(site, "site.yml");
 for (const s of Object.values(copy)) {
-  // Hidden founder card placeholders don't reach the page.
-  const visible = { ...s };
-  if (visible.founder && !visible.founder.show) delete visible.founder;
-  delete visible._file;
-  scan(visible, s._file);
+  const { _file, ...visible } = s;
+  scan(visible, _file);
 }
 
 for (const w of warnings) console.warn(`${LAUNCH ? "✖" : "⚠"} ${w}`);

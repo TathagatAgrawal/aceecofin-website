@@ -1,6 +1,6 @@
 # aceecofin-website
 
-Website for **Ace Ecofin Advisors** (aceecofinadvisors.com): a one-page static site built with [Eleventy](https://www.11ty.dev/) and hosted on Netlify. The plan and design system are in [`design/PLAN.md`](design/PLAN.md).
+Website for **Ace Ecofin Advisors** (aceecofinadvisors.com): a simple one-column, one-page static site, with all text taken from the firm profile. Built with [Eleventy](https://www.11ty.dev/) and hosted on Netlify. The plan and design system are in [`design/PLAN.md`](design/PLAN.md).
 
 ## Run locally
 
@@ -13,13 +13,11 @@ npm run build    # outputs the static site to _site/
 npm run check    # content check only
 ```
 
-The contact form is a Netlify Form, so it only submits on a Netlify deploy (or with `netlify dev`). Locally, submitting it won't work.
-
 ## Where things are
 
 | Path | What |
 |---|---|
-| `content/site.yml` | Firm name, SEO, contact details, menu, section order |
+| `content/site.yml` | Firm name, tagline, SEO, contact details, footer, section order |
 | `content/*.md` | One file per section. Labelled fields at the top, formatted text (bold, italic, links, lists) below the second `---` |
 | `src/_includes/` | Page layout (`base.njk`) and one template per section (`sections/`) |
 | `src/assets/css/styles.css` | All styles. Colours and sizes are variables at the top |

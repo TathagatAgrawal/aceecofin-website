@@ -24,7 +24,7 @@
 
 <link rel="icon" type="image/png" sizes="48x48" href="/assets/img/favicon-48.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<meta name="theme-color" content="#0B1F3A">
+<meta name="theme-color" content="#FFFFFF">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +40,6 @@
   "logo": site.url ~ site.logo.mark,
   "image": site.url ~ site.seo.og_image,
   "email": site.contact.email,
-  "areaServed": ["US", "GB", "CA", "AU", "AE", "IN"],
   "address": { "@type": "PostalAddress", "addressRegion": site.location, "addressCountry": "IN" }
 } %}
 <script type="application/ld+json">{{ ld | dump | safe }}</script>
@@ -48,20 +47,11 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header">
-  <div class="wrap site-header__inner">
-    <a class="brand" href="/#top" aria-label="{{ site.name }}, home">
+<header class="masthead">
+  <div class="col">
+    <a class="brand" href="/" aria-label="{{ site.name }}, home">
       <img class="brand__mark" src="{{ site.logo.mark }}" alt="" width="70" height="66">
-      <span class="brand__name">{{ site.name }}</span>
     </a>
-    <nav class="site-nav" aria-label="Main">
-      <ul>
-        {%- for item in site.menu %}
-        <li><a href="/{{ item.href }}">{{ item.label }}</a></li>
-        {%- endfor %}
-      </ul>
-    </nav>
-    <a class="btn btn--primary site-header__cta" href="/{{ site.menu_button.href }}">{{ site.menu_button.label }}</a>
   </div>
 </header>
 
@@ -70,9 +60,8 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap site-footer__inner">
-    <p><span class="site-footer__name">{{ site.name }}</span> · {{ site.footer.descriptor }} · {{ site.location }}</p>
-    <p>© {{ year }} {{ site.name }}. {{ site.footer.rights }}</p>
+  <div class="col">
+    <p>{{ site.name }} · {{ site.footer.descriptor }}</p>
   </div>
 </footer>
 </body>

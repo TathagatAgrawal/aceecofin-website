@@ -1,5 +1,5 @@
-# Site-wide settings: firm details, SEO, contact details, menu and section order.
-# Leave an optional contact field as "" to hide its row on the site.
+# Site-wide settings: firm name, tagline, SEO, contact details and section order.
+# Leave an optional contact field as "" to hide it on the site.
 
 name: Ace Ecofin Advisors
 tagline: Bookkeeping & International Taxation Support for Accounting Firms
@@ -7,41 +7,24 @@ url: https://aceecofinadvisors.com
 location: Central India
 
 logo:
-  mark: /assets/img/logo-mark.png # hexagon mark used in the header (swap for logo.svg once the original arrives)
+  mark: /assets/img/logo-mark.png # hexagon mark (swap for logo.svg once the original arrives)
   alt: Ace Ecofin Advisors
 
 seo:
   title: "Ace Ecofin Advisors: Bookkeeping & International Taxation Support for Accounting Firms"
-  description: Offshore bookkeeping and India tax support (NRI taxation, cross-border TDS, GST, transfer pricing) for CPA and accounting firms worldwide, from a team of qualified Chartered Accountants.
+  description: Bookkeeping and international taxation support for accounting firms, from a team of qualified Chartered Accountants based in Central India.
   og_image: /assets/img/og-image.png
 
 contact:
   email: siddharth@aceecofinadvisors.com
-  phone: "" # e.g. "+91 98765 43210" (shown with a WhatsApp link)
-  linkedin: "" # full URL of the LinkedIn page
-  calendly: "" # full URL of the booking page
-
-menu:
-  - label: Services
-    href: "#services"
-  - label: India Desk
-    href: "#india-desk"
-  - label: How we work
-    href: "#how"
-  - label: About
-    href: "#about"
-menu_button:
-  label: Book a free call
-  href: "#contact"
+  linkedin: "" # full URL of the LinkedIn page, e.g. https://www.linkedin.com/company/...
+  website: aceecofinadvisors.com
 
 footer:
   descriptor: Accounting · Bookkeeping · Taxation
-  rights: All rights reserved.
 
 # Order of the sections on the home page. Remove a line to hide that section.
 sections:
-  - hero
-  - services
-  - process
   - about
+  - services
   - contact

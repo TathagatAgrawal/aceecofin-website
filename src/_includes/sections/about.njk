@@ -1,38 +1,17 @@
 {%- set s = copy.about -%}
-<section id="{{ s.id or 'about' }}" class="section band">
-  <div class="wrap about">
-    <div class="about__text stack">
-      {%- if s.eyebrow %}<p class="eyebrow">{{ s.eyebrow }}</p>{% endif %}
-      <h2 class="h2">{{ s.heading }}</h2>
-      <div class="prose prose--lead muted">{{ s.body | md | safe }}</div>
-    </div>
-
-    <div class="about__side stack">
-      {%- if s.stats and s.stats.length %}
-      <dl class="stats">
-        {%- for st in s.stats %}
-        <div class="stat">
-          <dt class="stat__label">{{ st.label }}</dt>
-          <dd class="stat__value">{{ st.value }}</dd>
-        </div>
-        {%- endfor %}
-      </dl>
-      {%- endif %}
-
-      {%- if s.founder and s.founder.show %}
-      <div class="card card--muted founder">
-        {%- if s.founder.photo %}
-        <img class="founder__photo" src="{{ s.founder.photo }}" alt="{{ s.founder.name }}" width="120" height="120" loading="lazy">
-        {%- else %}
-        <div class="founder__photo founder__photo--empty" aria-hidden="true">{{ s.founder.name | first }}</div>
-        {%- endif %}
-        <div class="founder__text">
-          <p class="founder__name">{{ s.founder.name }}</p>
-          <p class="founder__role">{{ s.founder.role }}</p>
-          <p class="muted">{{ s.founder.bio | mdInline | safe }}</p>
-        </div>
+<section id="{{ s.id or 'about' }}" class="section" aria-labelledby="h-about">
+  <div class="col">
+    <h2 class="section__heading" id="h-about">{{ s.heading }}</h2>
+    <div class="prose">{{ s.body | md | safe }}</div>
+    {%- if s.stats and s.stats.length %}
+    <dl class="stats">
+      {%- for st in s.stats %}
+      <div class="stat">
+        <dt class="stat__value">{{ st.value }}</dt>
+        <dd class="stat__label">{{ st.label }}</dd>
       </div>
-      {%- endif %}
-    </div>
+      {%- endfor %}
+    </dl>
+    {%- endif %}
   </div>
 </section>
