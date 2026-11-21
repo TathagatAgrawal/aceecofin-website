@@ -1,0 +1,32 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-11-21T08:15:14.444Z",
+        "reason": "Brand choice: design/PLAN.md specifies Inter for body text; recorded in DESIGN.md"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "_site/index.html"
+        ],
+        "createdAt": "2026-11-21T08:15:14.767Z",
+        "reason": "Brand choice: design/PLAN.md specifies warm ivory #FAF8F4 page; recorded in DESIGN.md (The One Ground Rule)"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "_site/404.html"
+        ],
+        "createdAt": "2026-11-21T08:15:15.121Z",
+        "reason": "Brand choice: design/PLAN.md specifies warm ivory #FAF8F4 page; recorded in DESIGN.md (The One Ground Rule)"
+      }
+    ]
+  }
+}

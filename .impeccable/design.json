@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-21T08:34:05.899Z",
+  "title": "Design System: Ace Ecofin Advisors",
+  "extensions": {
+    "colorMeta": {
+      "ledger-navy": {
+        "role": "primary",
+        "displayName": "Ledger Navy",
+        "canonical": "#0B1F3A",
+        "tonalRamp": [
+          "#06111F",
+          "#0B1F3A",
+          "#1C3254",
+          "#34496D",
+          "#56698A",
+          "#8191AA",
+          "#B4BECD",
+          "#E3E7ED"
+        ]
+      },
+      "seal-gold": {
+        "role": "secondary",
+        "displayName": "Seal Gold",
+        "canonical": "#8B6B2E",
+        "tonalRamp": [
+          "#3A2C12",
+          "#5C4620",
+          "#8B6B2E",
+          "#A6874C",
+          "#BEA272",
+          "#CDB88A",
+          "#E2D5B8",
+          "#F3ECDD"
+        ]
+      },
+      "soft-gilt": {
+        "role": "secondary",
+        "displayName": "Soft Gilt",
+        "canonical": "#CDB88A",
+        "tonalRamp": [
+          "#5C4620",
+          "#8B6B2E",
+          "#A6874C",
+          "#BEA272",
+          "#CDB88A",
+          "#DCCBA6",
+          "#EADFC6",
+          "#F6F0E3"
+        ]
+      },
+      "body-slate": {
+        "role": "neutral",
+        "displayName": "Body Slate",
+        "canonical": "#26334A",
+        "tonalRamp": [
+          "#111826",
+          "#1B2537",
+          "#26334A",
+          "#3A4760",
+          "#5A6577",
+          "#8992A1",
+          "#BCC2CC",
+          "#E6E9EE"
+        ]
+      },
+      "muted-slate": {
+        "role": "neutral",
+        "displayName": "Muted Slate",
+        "canonical": "#5A6577",
+        "tonalRamp": [
+          "#1B2537",
+          "#26334A",
+          "#3A4760",
+          "#5A6577",
+          "#737D8D",
+          "#9AA2AF",
+          "#C4C9D1",
+          "#EAECEF"
+        ]
+      },
+      "ivory-page": {
+        "role": "neutral",
+        "displayName": "Ivory Page",
+        "canonical": "#FAF8F4",
+        "tonalRamp": [
+          "#4B4944",
+          "#77746D",
+          "#A29F97",
+          "#C8C4BB",
+          "#E6E1D6",
+          "#F0ECE4",
+          "#FAF8F4",
+          "#FFFFFF"
+        ]
+      },
+      "selection-cream": {
+        "role": "neutral",
+        "displayName": "Selection Cream",
+        "canonical": "#EADFC6",
+        "tonalRamp": [
+          "#5C4620",
+          "#8B6B2E",
+          "#BEA272",
+          "#D6C59E",
+          "#EADFC6",
+          "#F1E9D7",
+          "#F7F2E8",
+          "#FCFAF5"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The firm name only, centred, above a 56px gold hairline."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "The tagline: 19px sentence case, balanced, at most 34ch."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings, each below a 36x2px gold bar."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Service names; the same serif at 22px sets the contact email."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs; list items at 1.6 line height."
+      },
+      "subhead": {
+        "displayName": "Subhead",
+        "purpose": "List group titles in navy sentence case."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "One-word uppercase contact labels only."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "color-shift",
+        "value": "color .15s, text-decoration-color .15s, background-color .15s",
+        "purpose": "The only motion: link and button colour changes on hover."
+      },
+      {
+        "name": "anchor-scroll",
+        "value": "scroll-behavior: smooth (auto under prefers-reduced-motion)",
+        "purpose": "In-page anchor scrolling."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone-narrow",
+        "value": "480px"
+      },
+      {
+        "name": "phone",
+        "value": "640px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Outline Link Button",
+      "kind": "button",
+      "refersTo": "link-button",
+      "description": "The only button: square navy outline that fills on hover. Used on the 404 page.",
+      "html": "<a class=\"ds-link-button\" href=\"#\">Back to home</a>",
+      "css": ".ds-link-button { display: inline-flex; align-items: center; min-height: 46px; padding: 10px 26px; border: 1px solid #0B1F3A; color: #0B1F3A; background: transparent; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; transition: background-color .15s, color .15s; } .ds-link-button:hover { background: #0B1F3A; color: #fff; } .ds-link-button:focus-visible { outline: 2px solid #8B6B2E; outline-offset: 4px; border-radius: 2px; }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "description": "Navy link with a soft gilt underline that turns gold on hover.",
+      "html": "<p class=\"ds-p\">Write to <a class=\"ds-link\" href=\"#\">siddharth@aceecofinadvisors.com</a></p>",
+      "css": ".ds-p { font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.75; color: #26334A; } .ds-link { color: #0B1F3A; text-decoration-color: #CDB88A; text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .15s, text-decoration-color .15s; } .ds-link:hover { color: #8B6B2E; text-decoration-color: #8B6B2E; } .ds-link:focus-visible { outline: 2px solid #8B6B2E; outline-offset: 4px; border-radius: 2px; }"
+    },
+    {
+      "name": "Tagline",
+      "kind": "custom",
+      "refersTo": "tagline",
+      "description": "Centred sentence-case positioning line under the firm name.",
+      "html": "<p class=\"ds-tagline\">Bookkeeping &amp; International Taxation Support for Accounting Firms</p>",
+      "css": ".ds-tagline { margin: 0 auto; max-width: 34ch; text-align: center; font-family: Inter, system-ui, sans-serif; font-size: 19px; line-height: 1.55; color: #26334A; text-wrap: balance; }"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": "section-heading",
+      "description": "Gold 36x2 bar above a Playfair Display h2.",
+      "html": "<h2 class=\"ds-section-heading\">Services Offered</h2>",
+      "css": ".ds-section-heading { margin: 0 0 28px; font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-weight: 600; line-height: 1.15; letter-spacing: -0.005em; color: #0B1F3A; } .ds-section-heading::before { content: ''; display: block; width: 36px; height: 2px; margin-bottom: 20px; background: #8B6B2E; }"
+    },
+    {
+      "name": "Dash List with Group Title",
+      "kind": "custom",
+      "refersTo": "list-group-title",
+      "description": "Navy sentence-case subhead over a list with thin gold dash bullets.",
+      "html": "<h4 class=\"ds-group\">For NRI clients</h4><ul class=\"ds-list\"><li>One-stop solution for Indian taxation</li><li>Tax on sale of Indian property, shares and mutual funds</li></ul>",
+      "css": ".ds-group { margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 17px; font-weight: 600; line-height: 1.5; color: #0B1F3A; text-wrap: balance; } .ds-list { margin: 12px 0 0; padding: 0; list-style: none; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.6; color: #26334A; } .ds-list li { position: relative; padding-left: 26px; } .ds-list li + li { margin-top: 12px; } .ds-list li::before { content: \"\"; position: absolute; left: 2px; top: .8em; width: 12px; height: 1px; background: #8B6B2E; }"
+    },
+    {
+      "name": "Contact Row",
+      "kind": "custom",
+      "refersTo": "contact-value",
+      "description": "Uppercase one-word label above a serif link value; the email is the main call to action.",
+      "html": "<dl class=\"ds-details\"><div><dt>Email</dt><dd><a href=\"#\">siddharth@aceecofinadvisors.com</a></dd></div></dl>",
+      "css": ".ds-details { margin: 0; display: flex; flex-direction: column; gap: 20px; } .ds-details dt { font-family: Inter, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #5A6577; } .ds-details dd { margin: 2px 0 0; font-family: \"Playfair Display\", Georgia, serif; font-size: 22px; overflow-wrap: anywhere; } .ds-details a { color: #0B1F3A; text-decoration-color: #CDB88A; text-underline-offset: 4px; transition: color .15s, text-decoration-color .15s; } .ds-details a:hover { color: #8B6B2E; text-decoration-color: #8B6B2E; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Bound Firm Profile",
+    "overview": "The site is the firm profile, typeset rather than decorated. It is a single centred column on warm ivory paper. Navy serif headings sit above calm sans-serif text, and four small gold marks are the only ornament: a hairline under the firm name and a short bar above each section heading. White space does the rest of the separating. Authority comes from good proportions and exact type, not from structure drawn on the page.\n\nThe page is easy to read first. Body text is 17px with a 1.75 line height, lines run about 70 characters, and sections are 96px apart. Elements feel refined and restrained, with square edges and no shadows, and interaction is shown only by colour. Every fact appears once, in sentence case. Gold stays rare: it marks structure (the four marks and the list dashes) and never fills an area or carries running text.",
+    "keyCharacteristics": [
+      "One centred column at every width, with no grids, cards, tables, bands or menu bar",
+      "Warm ivory page with navy ink and a sparing gold accent",
+      "Playfair Display headings over Inter text, with lining numerals in headings",
+      "No full-width lines: space separates sections, and a short gold bar opens each one",
+      "Sentence case everywhere except one-word labels",
+      "Flat throughout, with no shadows, gradients or rounded containers"
+    ],
+    "rules": [
+      {
+        "name": "The Single Accent Rule",
+        "body": "Seal Gold is used for the four gold marks, list dashes, hover and focus. It never appears as a fill, a background or text.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Ground Rule",
+        "body": "The page is Ivory Page from top to bottom. No section gets a coloured band or panel.",
+        "section": "colors"
+      },
+      {
+        "name": "The Strict Ladder Rule",
+        "body": "At every width h1 is larger than h2, h2 than h3, and h3 than h4. Headings use lining numerals.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Uppercase tracked text is only for one-word labels. Anything longer is set in sentence case so it reads at a glance.",
+        "section": "typography"
+      },
+      {
+        "name": "The Serif Is for Emphasis Rule",
+        "body": "Playfair Display is never used for running text. Long text is always Inter.",
+        "section": "typography"
+      },
+      {
+        "name": "The Printed Page Rule",
+        "body": "If it could not be printed on paper, it does not belong. Nothing lifts, glows or overlaps.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Space, Not Lines Rule",
+        "body": "No full-width rules, table borders or dashed lines. If two things need separating, add space. The only drawn marks are the gold hairline under the firm name, the gold bar above each section heading, and the gold list dashes.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep every section inside the 620px column, separated by 96px (64px on phones) of space.",
+      "Do open each new section with the 36×2px Seal Gold bar above a Playfair Display h2.",
+      "Do set labels, titles and the tagline in sentence case; keep uppercase for one-word labels.",
+      "Do show each fact once, in the profile's own words.",
+      "Do keep text contrast at 4.5:1 or above on Ivory Page, and keep visible Seal Gold focus outlines.",
+      "Do respect `prefers-reduced-motion`. The only motion is 0.15s colour transitions and smooth anchor scrolling."
+    ],
+    "donts": [
+      "Don't add full-width rules, table borders, dashed lines or ruled lists.",
+      "Don't add grids, tables, cards, side-by-side blocks, coloured bands or a menu bar.",
+      "Don't use shadows, gradients, rounded corners or filled panels.",
+      "Don't use Playfair Display for body text, or let heading sizes fall out of h1 > h2 > h3 > h4 order.",
+      "Don't set text in Seal Gold or Soft Gilt, or use gold as a background fill.",
+      "Don't use a browser-slanted italic; Inter's italic is not loaded.",
+      "Don't add client-side JavaScript for visual effects."
+    ]
+  }
+}
