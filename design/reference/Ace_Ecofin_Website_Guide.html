@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ace Ecofin Advisors — Website Design, Content &amp; Netlify Hosting Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1F3A;--teal:#0F766E;--tealbg:#E3F3F0;--bg:#F6F7F9;--line:#E3E6EB;--muted:#44546A}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--navy);background:var(--bg);line-height:1.6}
+a{color:var(--teal)}
+header.top{background:var(--navy);color:#fff}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+header.top .wrap{padding:56px 28px 44px}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8FD6CC;margin:0 0 10px}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.15}
+h1{font-size:44px;margin:0 0 14px}
+header.top p.lead{color:#C9D3E0;font-size:18px;max-width:720px;margin:0}
+nav.toc{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding:14px 28px;font-size:14px;font-weight:500}
+nav.toc a{color:var(--navy);text-decoration:none}nav.toc a:hover{color:var(--teal)}
+section{padding:56px 0 8px}
+section>.wrap>h2{font-size:32px;margin:0 0 6px}
+.num{color:var(--teal);font-size:15px;font-weight:600;font-family:'Space Grotesk',sans-serif}
+.sub{color:var(--muted);margin:0 0 28px;max-width:760px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.swatch{border-radius:10px;height:72px;margin-bottom:10px;border:1px solid var(--line)}
+.sw p{margin:0;font-size:14px}.sw code{font-size:13px;color:var(--muted)}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:var(--navy);color:#E6EDF5;padding:16px 18px;border-radius:10px;overflow-x:auto;font-size:13px}
+code.i{background:#EEF1F4;padding:2px 6px;border-radius:5px;font-size:.92em}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#F0F2F5;font-weight:600}
+.preview-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
+.btn{font:inherit;font-weight:600;font-size:15px;border:0;border-radius:8px;padding:12px 20px;min-height:44px;cursor:pointer;background:var(--teal);color:#fff}
+.btn.ghost{background:#fff;color:var(--navy);border:1px solid #B8C2CF}
+.btn[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.frame{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:0 auto;transition:width .2s}
+.frame iframe{display:block;width:100%;height:760px;border:0}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps>li{counter-increment:s;position:relative;padding:0 0 22px 58px}
+.steps>li::before{content:counter(s);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:999px;background:var(--teal);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif}
+.steps h3{margin:4px 0 8px;font-size:20px}
+.steps ul,.steps ol{margin:6px 0;padding-left:20px}
+.note{background:var(--tealbg);border-radius:10px;padding:14px 18px;font-size:15px;margin:12px 0}
+.warn{background:#FDF3E1;border-radius:10px;padding:14px 18px;font-size:15px;margin:12px 0}
+.copy h4{margin:18px 0 6px;font-size:15px;color:var(--teal)}
+.copy p,.copy li{font-size:15px}
+.check li{list-style:none;margin-left:-20px;padding:4px 0}
+.check input{width:18px;height:18px;margin-right:10px;vertical-align:-3px;accent-color:var(--teal)}
+footer{padding:48px 0;color:var(--muted);font-size:14px}
+@media (max-width:640px){h1{font-size:32px}.frame iframe{height:600px}}
+@media print{nav.toc,.preview-bar,#preview .frame{display:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<p class="eyebrow">Website project</p>
+<h1>Ace Ecofin Advisors: website design, content &amp; hosting guide</h1>
+<p class="lead">Everything for <strong>aceecofinadvisors.com</strong> in one page: the design system, a live preview of the site, all the page copy, and step-by-step instructions to put it online with Netlify.</p>
+</div></header>
+
+<nav class="toc" aria-label="Contents"><div class="wrap">
+<a href="#overview">1. Overview</a><a href="#design">2. Design</a><a href="#preview">3. Live preview</a><a href="#content">4. Content</a><a href="#hosting">5. Host on Netlify</a><a href="#email">6. Business email</a><a href="#checklist">7. Launch checklist</a><a href="#build">8. Build brief</a>
+</div></nav>
+
+<section id="overview"><div class="wrap">
+<span class="num">01</span><h2>Overview</h2>
+<p class="sub">A single-page website for an India-based firm offering white-label bookkeeping and an "India desk" for NRI and cross-border tax to CPA and accounting firms abroad.</p>
+<div class="grid">
+<div class="card"><h3 style="margin-top:0">Audience</h3><p style="margin:0">CPA and accounting firms in the US, UK, Canada, Australia and the UAE looking for offshore capacity.</p></div>
+<div class="card"><h3 style="margin-top:0">Goal</h3><p style="margin:0">Get visitors to book a free 30-minute call or send an enquiry through the contact form.</p></div>
+<div class="card"><h3 style="margin-top:0">Tech</h3><p style="margin:0">One static <code class="i">index.html</code> file. No database or server. Hosted free on Netlify, with the form handled by Netlify Forms.</p></div>
+</div>
+</div></section>
+
+<section id="design"><div class="wrap">
+<span class="num">02</span><h2>Design system</h2>
+<p class="sub">A calm, professional look: deep navy for trust, teal for action, plenty of white space, and no stock photos.</p>
+<div class="card">
+<h3 style="margin-top:0">Colours</h3>
+<div class="grid">
+<div class="sw"><div class="swatch" style="background:#0B1F3A"></div><p><strong>Navy</strong>: headings, hero, footer</p><code>#0B1F3A</code></div>
+<div class="sw"><div class="swatch" style="background:#0F766E"></div><p><strong>Teal</strong>: buttons, links, accents</p><code>#0F766E</code></div>
+<div class="sw"><div class="swatch" style="background:#E3F3F0"></div><p><strong>Teal tint</strong>: icon backgrounds</p><code>#E3F3F0</code></div>
+<div class="sw"><div class="swatch" style="background:#F6F7F9"></div><p><strong>Page background</strong></p><code>#F6F7F9</code></div>
+<div class="sw"><div class="swatch" style="background:#44546A"></div><p><strong>Body grey</strong>: secondary text</p><code>#44546A</code></div>
+<div class="sw"><div class="swatch" style="background:#E3E6EB"></div><p><strong>Borders</strong></p><code>#E3E6EB</code></div>
+</div>
+</div>
+<div class="grid">
+<div class="card"><h3 style="margin-top:0">Typography</h3>
+<p style="font-family:'Space Grotesk';font-size:28px;font-weight:700;margin:0">Space Grotesk</p><p style="margin:0 0 12px;color:var(--muted)">Headings: 60px hero, 42px sections, 26px cards</p>
+<p style="font-size:20px;margin:0">Inter</p><p style="margin:0;color:var(--muted)">Body text: 16–20px, line height 1.6</p></div>
+<div class="card"><h3 style="margin-top:0">Layout</h3>
+<ul style="margin:0;padding-left:20px"><li>Content width: max 1200px, centred</li><li>Cards: white, 1px border, 16px rounded corners</li><li>Buttons: at least 44px tall, 8px corners</li><li>Grids collapse to one column on phones</li><li>Simple line icons, no emoji</li></ul></div>
+</div>
+<div class="card"><h3 style="margin-top:0">Page structure (top to bottom)</h3>
+<table><thead><tr><th>Section</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Menu bar</td><td>Firm name, links to each section, "Book a free call" button</td></tr>
+<tr><td>Hero (navy)</td><td>Headline, one-line pitch, two buttons, four trust points</td></tr>
+<tr><td>What we do</td><td>Two cards (Bookkeeping, India desk) and the software you work in</td></tr>
+<tr><td>How we work</td><td>Four steps: intro call, free pilot, onboarding, ongoing work</td></tr>
+<tr><td>Who we are</td><td>Firm description and founder card with photo</td></tr>
+<tr><td>Contact</td><td>Contact details and an enquiry form</td></tr>
+<tr><td>Footer (navy)</td><td>Firm name, GST-registered, city, copyright</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section id="preview"><div class="wrap">
+<span class="num">03</span><h2>Live preview</h2>
+<p class="sub">This is the actual website. Switch between desktop and phone width, or download <code class="i">index.html</code> to upload to Netlify.</p>
+<div class="preview-bar">
+<button class="btn ghost" type="button" id="vDesk" aria-pressed="true">Desktop</button>
+<button class="btn ghost" type="button" id="vMob" aria-pressed="false">Phone</button>
+<button class="btn" type="button" id="dl">Download index.html</button>
+</div>
+<div class="frame" id="frame"><iframe title="Website preview" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;Ace Ecofin Advisors — Bookkeeping and India Tax Desk for Accounting Firms&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;Offshore bookkeeping and India tax support (NRI taxation, cross-border TDS, GST, transfer pricing) for CPA and accounting firms worldwide. GST-registered firm in India.&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;amp;family=Space+Grotesk:wght@500;600;700&amp;amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+body{margin:0;background:#F6F7F9}
+a{color:#0B1F3A}a:hover{color:#0F766E}
+&lt;/style&gt;
+&lt;style&gt;html{scroll-behavior:smooth} @media (max-width:640px){h1{font-size:40px !important} h2{font-size:32px !important}}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div style=&quot;font-family: Inter, system-ui, sans-serif; color: #0B1F3A; background: #F6F7F9; min-height: 100vh&quot;&gt;
+
+  &lt;!-- Nav --&gt;
+  &lt;header style=&quot;background: #FFFFFF; border-bottom: 1px solid #E3E6EB&quot;&gt;
+    &lt;nav aria-label=&quot;Main&quot; style=&quot;max-width: 1200px; margin: 0 auto; padding: 18px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px&quot;&gt;
+      &lt;a href=&quot;#top&quot; style=&quot;font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-weight: 700; font-size: 22px; text-decoration: none; color: #0B1F3A&quot;&gt;Ace Ecofin Advisors&lt;/a&gt;
+      &lt;div style=&quot;display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px; font-weight: 500&quot;&gt;
+        &lt;a href=&quot;#services&quot; style=&quot;text-decoration: none&quot;&gt;Services&lt;/a&gt;
+        &lt;a href=&quot;#india-desk&quot; style=&quot;text-decoration: none&quot;&gt;India Desk&lt;/a&gt;
+        &lt;a href=&quot;#how&quot; style=&quot;text-decoration: none&quot;&gt;How we work&lt;/a&gt;
+        &lt;a href=&quot;#about&quot; style=&quot;text-decoration: none&quot;&gt;About&lt;/a&gt;
+        &lt;a href=&quot;#contact&quot; style=&quot;text-decoration: none; background: #0F766E; color: #FFFFFF; padding: 12px 20px; border-radius: 8px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center&quot;&gt;Book a free call&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;!-- Hero --&gt;
+  &lt;section id=&quot;top&quot; style=&quot;background: #0B1F3A; color: #FFFFFF&quot;&gt;
+    &lt;div style=&quot;max-width: 1200px; margin: 0 auto; padding: 96px 32px 88px; display: flex; flex-direction: column; gap: 28px&quot;&gt;
+      &lt;p style=&quot;margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8FD6CC&quot;&gt;Offshore back office for accounting firms&lt;/p&gt;
+      &lt;h1 style=&quot;margin: 0; font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-weight: 700; font-size: 60px; line-height: 1.05; max-width: 880px&quot;&gt;Bookkeeping and India tax support, delivered under your firm&#x27;s name.&lt;/h1&gt;
+      &lt;p style=&quot;margin: 0; font-size: 20px; line-height: 1.55; color: #C9D3E0; max-width: 720px&quot;&gt;We help CPA and accounting firms in the US, UK, Canada, Australia and beyond take on more clients without hiring more staff. You keep the client relationship and the final sign-off.&lt;/p&gt;
+      &lt;div style=&quot;display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px&quot;&gt;
+        &lt;a href=&quot;#contact&quot; style=&quot;background: #0F766E; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 16px 28px; border-radius: 8px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center&quot;&gt;Book a free 30-minute call&lt;/a&gt;
+        &lt;a href=&quot;#services&quot; style=&quot;color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 16px 28px; border-radius: 8px; border: 1px solid #5B6E88; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center&quot;&gt;See our services&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;ul style=&quot;list-style: none; margin: 24px 0 0; padding: 28px 0 0; border-top: 1px solid #22385A; display: flex; flex-wrap: wrap; gap: 16px 40px; font-size: 15px; color: #DCE3EC&quot;&gt;
+        &lt;li style=&quot;display: flex; align-items: center; gap: 10px&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#8FD6CC&quot; stroke-width=&quot;2.2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M20 6 9 17l-5-5&quot;&gt;&lt;/path&gt;&lt;/svg&gt;GST-registered firm in India&lt;/li&gt;
+        &lt;li style=&quot;display: flex; align-items: center; gap: 10px&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#8FD6CC&quot; stroke-width=&quot;2.2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M20 6 9 17l-5-5&quot;&gt;&lt;/path&gt;&lt;/svg&gt;White-label: we work under your brand&lt;/li&gt;
+        &lt;li style=&quot;display: flex; align-items: center; gap: 10px&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#8FD6CC&quot; stroke-width=&quot;2.2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M20 6 9 17l-5-5&quot;&gt;&lt;/path&gt;&lt;/svg&gt;NDA-backed confidentiality&lt;/li&gt;
+        &lt;li style=&quot;display: flex; align-items: center; gap: 10px&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#8FD6CC&quot; stroke-width=&quot;2.2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M20 6 9 17l-5-5&quot;&gt;&lt;/path&gt;&lt;/svg&gt;Free pilot before you commit&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Services --&gt;
+  &lt;section id=&quot;services&quot; style=&quot;max-width: 1200px; margin: 0 auto; padding: 96px 32px 48px; display: flex; flex-direction: column; gap: 40px&quot;&gt;
+    &lt;div style=&quot;display: flex; flex-direction: column; gap: 12px; max-width: 720px&quot;&gt;
+      &lt;p style=&quot;margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #0F766E&quot;&gt;What we do&lt;/p&gt;
+      &lt;h2 style=&quot;margin: 0; font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-weight: 700; font-size: 42px; line-height: 1.1&quot;&gt;Two ways we take work off your plate&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px&quot;&gt;
+      &lt;article style=&quot;background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 16px; padding: 36px; display: flex; flex-direction: column; gap: 18px&quot;&gt;
+        &lt;div style=&quot;width: 48px; height: 48px; border-radius: 12px; background: #E3F3F0; display: flex; align-items: center; justify-content: center&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#0F766E&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2.5Z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M8 7h7M8 11h7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;h3 style=&quot;margin: 0; font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-size: 26px; font-weight: 600&quot;&gt;Bookkeeping &amp;amp; accounting&lt;/h3&gt;
+        &lt;p style=&quot;margin: 0; font-size: 16px; line-height: 1.6; color: #44546A&quot;&gt;Recurring and catch-up work, done in your software and to your checklists.&lt;/p&gt;
+        &lt;ul style=&quot;margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.9; color: #1F2F45&quot;&gt;
+          &lt;li&gt;Monthly / quarterly bookkeeping and categorization&lt;/li&gt;
+          &lt;li&gt;Bank, credit card and loan reconciliations&lt;/li&gt;
+          &lt;li&gt;Month-end and year-end close, adjusting entries&lt;/li&gt;
+          &lt;li&gt;Catch-up and clean-up of books that are behind&lt;/li&gt;
+          &lt;li&gt;AP / AR, financial statements and management reports&lt;/li&gt;
+          &lt;li&gt;Excel automation and data clean-up&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/article&gt;
+      &lt;article id=&quot;india-desk&quot; style=&quot;background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 16px; padding: 36px; display: flex; flex-direction: column; gap: 18px&quot;&gt;
+        &lt;div style=&quot;width: 48px; height: 48px; border-radius: 12px; background: #E3F3F0; display: flex; align-items: center; justify-content: center&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#0F766E&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot;&gt;&lt;/circle&gt;&lt;path d=&quot;M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;h3 style=&quot;margin: 0; font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-size: 26px; font-weight: 600&quot;&gt;International tax: your India desk&lt;/h3&gt;
+        &lt;p style=&quot;margin: 0; font-size: 16px; line-height: 1.6; color: #44546A&quot;&gt;When your clients have an Indian connection, we handle the Indian side so you don&#x27;t have to.&lt;/p&gt;
+        &lt;div style=&quot;display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px&quot;&gt;
+          &lt;div style=&quot;display: flex; flex-direction: column; gap: 8px&quot;&gt;
+            &lt;h4 style=&quot;margin: 0; font-size: 15px; font-weight: 600; color: #0F766E&quot;&gt;For NRI clients&lt;/h4&gt;
+            &lt;ul style=&quot;margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.8; color: #1F2F45&quot;&gt;
+              &lt;li&gt;Indian income tax returns&lt;/li&gt;
+              &lt;li&gt;DTAA relief, foreign tax credits and TRC&lt;/li&gt;
+              &lt;li&gt;Tax on sale of Indian property, shares and funds&lt;/li&gt;
+              &lt;li&gt;Lower or nil TDS applications&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+          &lt;div style=&quot;display: flex; flex-direction: column; gap: 8px&quot;&gt;
+            &lt;h4 style=&quot;margin: 0; font-size: 15px; font-weight: 600; color: #0F766E&quot;&gt;For businesses with Indian vendors&lt;/h4&gt;
+            &lt;ul style=&quot;margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.8; color: #1F2F45&quot;&gt;
+              &lt;li&gt;Withholding tax and treaty rates&lt;/li&gt;
+              &lt;li&gt;Remittance compliance&lt;/li&gt;
+              &lt;li&gt;GST on cross-border services&lt;/li&gt;
+              &lt;li&gt;Transfer pricing and benchmarking&lt;/li&gt;
+              &lt;li&gt;Permanent establishment (PE) reviews&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/article&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: 15px; color: #44546A&quot;&gt;
+      &lt;span style=&quot;font-weight: 600; color: #0B1F3A&quot;&gt;We work in:&lt;/span&gt;
+      &lt;span style=&quot;background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 999px; padding: 8px 16px&quot;&gt;QuickBooks Online&lt;/span&gt;
+      &lt;span style=&quot;background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 999px; padding: 8px 16px&quot;&gt;Xero&lt;/span&gt;
+      &lt;span style=&quot;background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 999px; padding: 8px 16px&quot;&gt;Zoho Books&lt;/span&gt;
+      &lt;span style=&quot;background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 999px; padding: 8px 16px&quot;&gt;[Sage / MYOB]&lt;/span&gt;
+      &lt;span style=&quot;background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 999px; padding: 8px 16px&quot;&gt;Dext / Hubdoc&lt;/span&gt;
+      &lt;span style=&quot;background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 999px; padding: 8px 16px&quot;&gt;Excel&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- How we work --&gt;
+  &lt;section id=&quot;how&quot; style=&quot;max-width: 1200px; margin: 0 auto; padding: 64px 32px; display: flex; flex-direction: column; gap: 40px&quot;&gt;
+    &lt;div style=&quot;display: flex; flex-direction: column; gap: 12px; max-width: 720px&quot;&gt;
+      &lt;p style=&quot;margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #0F766E&quot;&gt;How we work&lt;/p&gt;
+      &lt;h2 style=&quot;margin: 0; font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-weight: 700; font-size: 42px; line-height: 1.1&quot;&gt;Start small. See the quality first.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;ol style=&quot;list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px&quot;&gt;
+      &lt;li style=&quot;border-top: 3px solid #0F766E; padding-top: 20px; display: flex; flex-direction: column; gap: 10px&quot;&gt;
+        &lt;span style=&quot;font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-size: 15px; font-weight: 600; color: #0F766E&quot;&gt;01&lt;/span&gt;
+        &lt;h3 style=&quot;margin: 0; font-size: 20px; font-weight: 600&quot;&gt;Intro call&lt;/h3&gt;
+        &lt;p style=&quot;margin: 0; font-size: 16px; line-height: 1.6; color: #44546A&quot;&gt;30 minutes to understand your clients, software and the work you want to hand off.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li style=&quot;border-top: 3px solid #0F766E; padding-top: 20px; display: flex; flex-direction: column; gap: 10px&quot;&gt;
+        &lt;span style=&quot;font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-size: 15px; font-weight: 600; color: #0F766E&quot;&gt;02&lt;/span&gt;
+        &lt;h3 style=&quot;margin: 0; font-size: 20px; font-weight: 600&quot;&gt;Free pilot&lt;/h3&gt;
+        &lt;p style=&quot;margin: 0; font-size: 16px; line-height: 1.6; color: #44546A&quot;&gt;We complete [one client file] at no cost so you can judge our work before committing.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li style=&quot;border-top: 3px solid #0F766E; padding-top: 20px; display: flex; flex-direction: column; gap: 10px&quot;&gt;
+        &lt;span style=&quot;font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-size: 15px; font-weight: 600; color: #0F766E&quot;&gt;03&lt;/span&gt;
+        &lt;h3 style=&quot;margin: 0; font-size: 20px; font-weight: 600&quot;&gt;Onboarding&lt;/h3&gt;
+        &lt;p style=&quot;margin: 0; font-size: 16px; line-height: 1.6; color: #44546A&quot;&gt;We document your process into a checklist for each client and sign an NDA.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li style=&quot;border-top: 3px solid #0F766E; padding-top: 20px; display: flex; flex-direction: column; gap: 10px&quot;&gt;
+        &lt;span style=&quot;font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-size: 15px; font-weight: 600; color: #0F766E&quot;&gt;04&lt;/span&gt;
+        &lt;h3 style=&quot;margin: 0; font-size: 20px; font-weight: 600&quot;&gt;Ongoing work&lt;/h3&gt;
+        &lt;p style=&quot;margin: 0; font-size: 16px; line-height: 1.6; color: #44546A&quot;&gt;A named contact, agreed turnaround times and regular status updates.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/section&gt;
+
+  &lt;!-- About --&gt;
+  &lt;section id=&quot;about&quot; style=&quot;background: #FFFFFF; border-top: 1px solid #E3E6EB; border-bottom: 1px solid #E3E6EB&quot;&gt;
+    &lt;div style=&quot;max-width: 1200px; margin: 0 auto; padding: 88px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; align-items: center&quot;&gt;
+      &lt;div style=&quot;display: flex; flex-direction: column; gap: 18px&quot;&gt;
+        &lt;p style=&quot;margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #0F766E&quot;&gt;Who we are&lt;/p&gt;
+        &lt;h2 style=&quot;margin: 0; font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-weight: 700; font-size: 42px; line-height: 1.1&quot;&gt;A small firm. Direct access to the founder.&lt;/h2&gt;
+        &lt;p style=&quot;margin: 0; font-size: 17px; line-height: 1.65; color: #44546A&quot;&gt;Ace Ecofin Advisors is a GST-registered financial advisory and accounting firm based in [City], India. We work behind the scenes for accounting firms abroad, inside your software and following your checklists.&lt;/p&gt;
+        &lt;p style=&quot;margin: 0; font-size: 17px; line-height: 1.65; color: #44546A&quot;&gt;Because we&#x27;re small, you talk directly to the person responsible for your work.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div style=&quot;background: #F6F7F9; border: 1px solid #E3E6EB; border-radius: 16px; padding: 32px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap&quot;&gt;
+        &lt;div role=&quot;img&quot; aria-label=&quot;Founder photo placeholder&quot; style=&quot;width: 120px; height: 120px; border-radius: 999px; background: #DCE3EC; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #44546A; flex-shrink: 0&quot;&gt;[Photo]&lt;/div&gt;
+        &lt;div style=&quot;display: flex; flex-direction: column; gap: 6px; flex: 1 1 200px&quot;&gt;
+          &lt;p style=&quot;margin: 0; font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-size: 22px; font-weight: 600&quot;&gt;[Your name]&lt;/p&gt;
+          &lt;p style=&quot;margin: 0; font-size: 15px; font-weight: 500; color: #0F766E&quot;&gt;Founder, Ace Ecofin Advisors&lt;/p&gt;
+          &lt;p style=&quot;margin: 0; font-size: 15px; line-height: 1.6; color: #44546A&quot;&gt;[Qualifications] with [X] years of experience in accounting, tax compliance, transfer pricing and financial analysis.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Contact --&gt;
+  &lt;section id=&quot;contact&quot; style=&quot;max-width: 1200px; margin: 0 auto; padding: 96px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px&quot;&gt;
+    &lt;div style=&quot;display: flex; flex-direction: column; gap: 20px&quot;&gt;
+      &lt;p style=&quot;margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #0F766E&quot;&gt;Contact us&lt;/p&gt;
+      &lt;h2 style=&quot;margin: 0; font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-weight: 700; font-size: 42px; line-height: 1.1&quot;&gt;Let&#x27;s start with a free 30-minute call.&lt;/h2&gt;
+      &lt;p style=&quot;margin: 0; font-size: 17px; line-height: 1.65; color: #44546A&quot;&gt;Tell us about your firm and the work you&#x27;d like to hand off. We&#x27;ll reply within one business day.&lt;/p&gt;
+      &lt;dl style=&quot;margin: 8px 0 0; display: grid; grid-template-columns: max-content 1fr; gap: 14px 24px; font-size: 16px&quot;&gt;
+        &lt;dt style=&quot;font-weight: 600&quot;&gt;Email&lt;/dt&gt;&lt;dd style=&quot;margin: 0&quot;&gt;&lt;a href=&quot;mailto:[email]&quot;&gt;[email]&lt;/a&gt;&lt;/dd&gt;
+        &lt;dt style=&quot;font-weight: 600&quot;&gt;Phone / WhatsApp&lt;/dt&gt;&lt;dd style=&quot;margin: 0&quot;&gt;[+91 XXXXX XXXXX]&lt;/dd&gt;
+        &lt;dt style=&quot;font-weight: 600&quot;&gt;LinkedIn&lt;/dt&gt;&lt;dd style=&quot;margin: 0&quot;&gt;&lt;a href=&quot;#contact&quot;&gt;[LinkedIn page]&lt;/a&gt;&lt;/dd&gt;
+        &lt;dt style=&quot;font-weight: 600&quot;&gt;Book a call&lt;/dt&gt;&lt;dd style=&quot;margin: 0&quot;&gt;&lt;a href=&quot;#contact&quot;&gt;[Calendly link]&lt;/a&gt;&lt;/dd&gt;
+        &lt;dt style=&quot;font-weight: 600&quot;&gt;Office&lt;/dt&gt;&lt;dd style=&quot;margin: 0&quot;&gt;[City], India&lt;/dd&gt;
+      &lt;/dl&gt;
+    &lt;/div&gt;
+    &lt;form name=&quot;contact&quot; method=&quot;POST&quot; data-netlify=&quot;true&quot; netlify-honeypot=&quot;bot-field&quot; aria-label=&quot;Contact form&quot; style=&quot;background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 16px; padding: 36px; display: flex; flex-direction: column; gap: 18px&quot;&gt;
+      &lt;input type=&quot;hidden&quot; name=&quot;form-name&quot; value=&quot;contact&quot;&gt;
+      &lt;p hidden&gt;&lt;label&gt;Leave this empty: &lt;input name=&quot;bot-field&quot;&gt;&lt;/label&gt;&lt;/p&gt;
+      &lt;div style=&quot;display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px&quot;&gt;
+        &lt;div style=&quot;display: flex; flex-direction: column; gap: 6px&quot;&gt;
+          &lt;label for=&quot;cf-name&quot; style=&quot;font-size: 14px; font-weight: 600&quot;&gt;Your name&lt;/label&gt;
+          &lt;input id=&quot;cf-name&quot; name=&quot;name&quot; type=&quot;text&quot; required style=&quot;font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #B8C2CF; border-radius: 8px; min-height: 44px; box-sizing: border-box&quot;&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;display: flex; flex-direction: column; gap: 6px&quot;&gt;
+          &lt;label for=&quot;cf-firm&quot; style=&quot;font-size: 14px; font-weight: 600&quot;&gt;Firm name&lt;/label&gt;
+          &lt;input id=&quot;cf-firm&quot; name=&quot;firm&quot; type=&quot;text&quot; style=&quot;font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #B8C2CF; border-radius: 8px; min-height: 44px; box-sizing: border-box&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div style=&quot;display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px&quot;&gt;
+        &lt;div style=&quot;display: flex; flex-direction: column; gap: 6px&quot;&gt;
+          &lt;label for=&quot;cf-email&quot; style=&quot;font-size: 14px; font-weight: 600&quot;&gt;Email&lt;/label&gt;
+          &lt;input id=&quot;cf-email&quot; name=&quot;email&quot; type=&quot;email&quot; required style=&quot;font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #B8C2CF; border-radius: 8px; min-height: 44px; box-sizing: border-box&quot;&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;display: flex; flex-direction: column; gap: 6px&quot;&gt;
+          &lt;label for=&quot;cf-country&quot; style=&quot;font-size: 14px; font-weight: 600&quot;&gt;Country&lt;/label&gt;
+          &lt;select id=&quot;cf-country&quot; name=&quot;country&quot; style=&quot;font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #B8C2CF; border-radius: 8px; min-height: 44px; box-sizing: border-box; background: #FFFFFF&quot;&gt;
+            &lt;option&gt;United States&lt;/option&gt;
+            &lt;option&gt;United Kingdom&lt;/option&gt;
+            &lt;option&gt;Canada&lt;/option&gt;
+            &lt;option&gt;Australia&lt;/option&gt;
+            &lt;option&gt;UAE&lt;/option&gt;
+            &lt;option&gt;Other&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div style=&quot;display: flex; flex-direction: column; gap: 6px&quot;&gt;
+        &lt;label for=&quot;cf-need&quot; style=&quot;font-size: 14px; font-weight: 600&quot;&gt;I&#x27;m interested in&lt;/label&gt;
+        &lt;select id=&quot;cf-need&quot; name=&quot;service&quot; style=&quot;font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #B8C2CF; border-radius: 8px; min-height: 44px; box-sizing: border-box; background: #FFFFFF&quot;&gt;
+          &lt;option&gt;Bookkeeping &amp;amp; accounting&lt;/option&gt;
+          &lt;option&gt;India desk: NRI taxation&lt;/option&gt;
+          &lt;option&gt;India desk: cross-border business tax&lt;/option&gt;
+          &lt;option&gt;Something else&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+      &lt;div style=&quot;display: flex; flex-direction: column; gap: 6px&quot;&gt;
+        &lt;label for=&quot;cf-msg&quot; style=&quot;font-size: 14px; font-weight: 600&quot;&gt;Message&lt;/label&gt;
+        &lt;textarea id=&quot;cf-msg&quot; name=&quot;message&quot; rows=&quot;5&quot; style=&quot;font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #B8C2CF; border-radius: 8px; resize: vertical&quot;&gt;&lt;/textarea&gt;
+      &lt;/div&gt;
+      &lt;button type=&quot;submit&quot; style=&quot;font: inherit; font-size: 16px; font-weight: 600; background: #0F766E; color: #FFFFFF; border: 0; border-radius: 8px; padding: 14px 24px; min-height: 48px; cursor: pointer; align-self: flex-start&quot;&gt;Send message&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Footer --&gt;
+  &lt;footer style=&quot;background: #0B1F3A; color: #C9D3E0&quot;&gt;
+    &lt;div style=&quot;max-width: 1200px; margin: 0 auto; padding: 40px 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 14px&quot;&gt;
+      &lt;p style=&quot;margin: 0&quot;&gt;&lt;span style=&quot;font-family: &#x27;Space Grotesk&#x27;, sans-serif; font-weight: 700; color: #FFFFFF&quot;&gt;Ace Ecofin Advisors&lt;/span&gt; · GST-registered · [City], India&lt;/p&gt;
+      &lt;p style=&quot;margin: 0&quot;&gt;© 2026 Ace Ecofin Advisors. All rights reserved.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></div>
+</div></section>
+
+<section id="content"><div class="wrap copy">
+<span class="num">04</span><h2>Website content</h2>
+<p class="sub">All the copy on the page. Text in [brackets] needs your details before launch.</p>
+<div class="card">
+<h4>Hero</h4>
+<p><strong>Eyebrow:</strong> Offshore back office for accounting firms</p>
+<p><strong>Headline:</strong> Bookkeeping and India tax support, delivered under your firm's name.</p>
+<p><strong>Subheading:</strong> We help CPA and accounting firms in the US, UK, Canada, Australia and beyond take on more clients without hiring more staff. You keep the client relationship and the final sign-off.</p>
+<p><strong>Buttons:</strong> Book a free 30-minute call · See our services</p>
+<p><strong>Trust points:</strong> GST-registered firm in India · White-label: we work under your brand · NDA-backed confidentiality · Free pilot before you commit</p>
+</div>
+<div class="card">
+<h4>What we do: Bookkeeping &amp; accounting</h4>
+<p>Recurring and catch-up work, done in your software and to your checklists.</p>
+<ul><li>Monthly / quarterly bookkeeping and categorization</li><li>Bank, credit card and loan reconciliations</li><li>Month-end and year-end close, adjusting entries</li><li>Catch-up and clean-up of books that are behind</li><li>AP / AR, financial statements and management reports</li><li>Excel automation and data clean-up</li></ul>
+<h4>What we do: International tax, your India desk</h4>
+<p>When your clients have an Indian connection, we handle the Indian side so you don't have to.</p>
+<p><strong>For NRI clients:</strong> Indian income tax returns · DTAA relief, foreign tax credits and TRC · Tax on sale of Indian property, shares and funds · Lower or nil TDS applications</p>
+<p><strong>For businesses with Indian vendors:</strong> Withholding tax and treaty rates · Remittance compliance · GST on cross-border services · Transfer pricing and benchmarking · Permanent establishment (PE) reviews</p>
+<p><strong>We work in:</strong> QuickBooks Online · Xero · Zoho Books · [Sage / MYOB] · Dext / Hubdoc · Excel</p>
+</div>
+<div class="card">
+<h4>How we work</h4>
+<ol><li><strong>Intro call:</strong> 30 minutes to understand your clients, software and the work you want to hand off.</li><li><strong>Free pilot:</strong> We complete [one client file] at no cost so you can judge our work before committing.</li><li><strong>Onboarding:</strong> We document your process into a checklist for each client and sign an NDA.</li><li><strong>Ongoing work:</strong> A named contact, agreed turnaround times and regular status updates.</li></ol>
+</div>
+<div class="card">
+<h4>Who we are</h4>
+<p><strong>Heading:</strong> A small firm. Direct access to the founder.</p>
+<p>Ace Ecofin Advisors is a GST-registered financial advisory and accounting firm based in [City], India. We work behind the scenes for accounting firms abroad, inside your software and following your checklists. Because we're small, you talk directly to the person responsible for your work.</p>
+<p><strong>Founder card:</strong> [Photo] · [Your name], Founder · [Qualifications] with [X] years of experience in accounting, tax compliance, transfer pricing and financial analysis.</p>
+</div>
+<div class="card">
+<h4>Contact</h4>
+<p><strong>Heading:</strong> Let's start with a free 30-minute call.</p>
+<p>Tell us about your firm and the work you'd like to hand off. We'll reply within one business day.</p>
+<p>Email: [email] · Phone / WhatsApp: [+91 XXXXX XXXXX] · LinkedIn: [LinkedIn page] · Book a call: [Calendly link] · Office: [City], India</p>
+<p><strong>Form fields:</strong> Your name* · Firm name · Email* · Country · I'm interested in · Message (*required)</p>
+<h4>Footer</h4>
+<p>Ace Ecofin Advisors · GST-registered · [City], India · © 2026 Ace Ecofin Advisors. All rights reserved.</p>
+</div>
+<div class="warn"><strong>Before launch:</strong> say "experienced in QuickBooks Online" rather than "certified" until you hold the ProAdvisor badge. US CPAs can check certifications.</div>
+</div></section>
+
+<section id="hosting"><div class="wrap">
+<span class="num">05</span><h2>Host it on Netlify</h2>
+<p class="sub">Free hosting with HTTPS, your own domain and a working contact form. Takes about 30 minutes, plus up to a day for the domain change to take effect.</p>
+<div class="card">
+<ol class="steps">
+<li><h3>Prepare the file</h3>
+<ul><li>Download <code class="i">index.html</code> from section 3.</li><li>Open it in a text editor (Notepad or VS Code) and replace every [bracket] with your details.</li><li>Create a folder named <code class="i">aceecofin</code> and put <code class="i">index.html</code> inside. Later you can add a photo (e.g. <code class="i">founder.jpg</code>) to the same folder.</li></ul></li>
+<li><h3>Create a Netlify account</h3>
+<ul><li>Go to <strong>netlify.com</strong> → Sign up (email or Google). The free plan is enough.</li></ul></li>
+<li><h3>Deploy the site</h3>
+<ul><li>Go to <strong>Add new project → Deploy manually</strong>.</li><li>Drag the <code class="i">aceecofin</code> folder onto the upload area.</li><li>After a few seconds the site is live at a temporary address like <code class="i">random-name.netlify.app</code>. Open it and check everything.</li><li>Optional: <strong>Project configuration → Change project name</strong> to <code class="i">aceecofin</code>.</li></ul></li>
+<li><h3>Add your domain</h3>
+<ul><li>In the site: <strong>Domain management → Add a domain</strong> → type <code class="i">aceecofinadvisors.com</code> → Verify → Add domain.</li><li>Netlify will also set up <code class="i">www.aceecofinadvisors.com</code>.</li></ul></li>
+<li><h3>Point the domain to Netlify</h3>
+<p>Log in to the registrar where you bought the domain (GoDaddy, Hostinger, Namecheap, etc.) and choose <strong>one</strong> option:</p>
+<p><strong>Option A (easiest): use Netlify DNS.</strong> In Netlify choose <em>Set up Netlify DNS</em>. It shows four nameservers. At your registrar, replace the existing nameservers with those four.</p>
+<pre>dns1.p0X.nsone.net
+dns2.p0X.nsone.net
+dns3.p0X.nsone.net
+dns4.p0X.nsone.net   ← use the exact names Netlify shows you</pre>
+<p><strong>Option B: keep your registrar's DNS.</strong> Add these records at the registrar (Netlify shows the exact values under <em>Awaiting External DNS</em>):</p>
+<table><thead><tr><th>Type</th><th>Name / Host</th><th>Value</th></tr></thead><tbody>
+<tr><td>A</td><td>@</td><td>The IP address Netlify shows (load balancer)</td></tr>
+<tr><td>CNAME</td><td>www</td><td><code class="i">your-site-name.netlify.app</code></td></tr></tbody></table>
+<div class="note">Delete any old A or CNAME records for <code class="i">@</code> and <code class="i">www</code> (e.g. the registrar's "parking" page), or they will conflict.</div></li>
+<li><h3>Wait, then turn on HTTPS</h3>
+<ul><li>DNS changes usually take 1–2 hours, sometimes up to 24.</li><li>Netlify issues a free SSL certificate by itself. If it doesn't, go to <strong>Domain management → HTTPS → Verify DNS configuration</strong>.</li><li>Test both <code class="i">https://aceecofinadvisors.com</code> and the <code class="i">www</code> version.</li></ul></li>
+<li><h3>Switch on contact form emails</h3>
+<ul><li>The form is already set up for Netlify Forms (<code class="i">data-netlify="true"</code>, name <code class="i">contact</code>, with spam protection).</li><li>After deploying, open <strong>Forms</strong> in Netlify, enable form detection if asked, and redeploy once.</li><li>Under <strong>Forms → Form notifications → Add notification → Email notification</strong>, enter your business email.</li><li>Send a test enquiry from the live site to check it arrives.</li><li>The free plan includes 100 submissions a month.</li></ul></li>
+<li><h3>Update the site later</h3>
+<ul><li>Edit <code class="i">index.html</code> on your computer.</li><li>In Netlify go to <strong>Deploys</strong> and drag the folder in again. The site updates in seconds, and you can roll back to any earlier version with one click.</li></ul></li>
+</ol>
+</div>
+</div></section>
+
+<section id="email"><div class="wrap">
+<span class="num">06</span><h2>Business email with your domain</h2>
+<p class="sub">Use <code class="i">name@aceecofinadvisors.com</code> instead of Gmail. CPAs take it more seriously, and it's free.</p>
+<div class="card">
+<ol class="steps">
+<li><h3>Sign up for Zoho Mail's free plan</h3><p>zoho.com/mail → Pricing → <strong>Forever Free</strong> (up to 5 users, 5 GB each, web and mobile apps). Enter <code class="i">aceecofinadvisors.com</code> as your domain.</p></li>
+<li><h3>Verify the domain</h3><p>Zoho gives you a <strong>TXT</strong> record. Add it in Netlify DNS (if you chose Option A) or at your registrar (Option B).</p></li>
+<li><h3>Add the mail records</h3>
+<table><thead><tr><th>Type</th><th>Host</th><th>Value (from Zoho)</th></tr></thead><tbody>
+<tr><td>MX</td><td>@</td><td>mx.zoho.in (priority 10), mx2.zoho.in (20), mx3.zoho.in (50). Use exactly what Zoho shows</td></tr>
+<tr><td>TXT (SPF)</td><td>@</td><td><code class="i">v=spf1 include:zoho.in ~all</code></td></tr>
+<tr><td>TXT (DKIM)</td><td>the selector Zoho gives</td><td>The long key from Zoho → Domains → DKIM</td></tr></tbody></table></li>
+<li><h3>Create your mailbox</h3><p>For example <code class="i">mayank@</code> and <code class="i">contact@aceecofinadvisors.com</code>. Use it on the website, the contact form notifications, LinkedIn and your firm profile.</p></li>
+</ol>
+</div>
+</div></section>
+
+<section id="checklist"><div class="wrap">
+<span class="num">07</span><h2>Launch checklist</h2>
+<p class="sub">Tick items off as you go (ticks are not saved).</p>
+<div class="card"><ul class="check">
+<li><label><input type="checkbox"> Firm name spelling confirmed (Ace Ecofin Advisors)</label></li>
+<li><label><input type="checkbox"> All [brackets] replaced: name, qualifications, city, phone, email, LinkedIn, Calendly</label></li>
+<li><label><input type="checkbox"> Founder photo added</label></li>
+<li><label><input type="checkbox"> Site deployed on Netlify and checked on a phone</label></li>
+<li><label><input type="checkbox"> aceecofinadvisors.com and www both working with HTTPS</label></li>
+<li><label><input type="checkbox"> Contact form tested and email notification received</label></li>
+<li><label><input type="checkbox"> Zoho business email working (send and receive)</label></li>
+<li><label><input type="checkbox"> Website added to Google Search Console (verify with a DNS TXT record)</label></li>
+<li><label><input type="checkbox"> Website link added to LinkedIn page, email signature and firm profile</label></li>
+</ul></div>
+</div></section>
+
+<section id="build"><div class="wrap">
+<span class="num">08</span><h2>Brief for building the site</h2>
+<p class="sub">Paste this into a new Claude Code session along with this file.</p>
+<pre>Build the website for Ace Ecofin Advisors (aceecofinadvisors.com) using the attached
+reference file Ace_Ecofin_Website_Guide.html.
+- Follow the design system in section 2 (colours, Space Grotesk + Inter, layout rules)
+  and the page structure in section 2's table.
+- Use the copy in section 4 word for word; keep [bracket] placeholders where details are missing.
+- The live preview in section 3 is the target look; its source is the "Download index.html" file.
+- Output: a static site (index.html plus any images) deployable to Netlify by drag-and-drop.
+- Keep the contact form as a Netlify Form: name="contact", data-netlify="true",
+  hidden form-name input, honeypot field "bot-field", required name and email.
+- Fully responsive (phone width 390px), accessible (labels, 44px buttons, 4.5:1 contrast),
+  no emoji, no stock photos, no external JS libraries.</pre>
+</div></section>
+
+<footer><div class="wrap">Prepared for Ace Ecofin Advisors · aceecofinadvisors.com · November 2026</div></footer>
+
+<script>
+const SITE = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Ace Ecofin Advisors \u2014 Bookkeeping and India Tax Desk for Accounting Firms<\/title>\n<meta name=\"description\" content=\"Offshore bookkeeping and India tax support (NRI taxation, cross-border TDS, GST, transfer pricing) for CPA and accounting firms worldwide. GST-registered firm in India.\">\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap\" rel=\"stylesheet\">\n<style>\nbody{margin:0;background:#F6F7F9}\na{color:#0B1F3A}a:hover{color:#0F766E}\n<\/style>\n<style>html{scroll-behavior:smooth} @media (max-width:640px){h1{font-size:40px !important} h2{font-size:32px !important}}<\/style>\n<\/head>\n<body>\n<div style=\"font-family: Inter, system-ui, sans-serif; color: #0B1F3A; background: #F6F7F9; min-height: 100vh\">\n\n  <!-- Nav -->\n  <header style=\"background: #FFFFFF; border-bottom: 1px solid #E3E6EB\">\n    <nav aria-label=\"Main\" style=\"max-width: 1200px; margin: 0 auto; padding: 18px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px\">\n      <a href=\"#top\" style=\"font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; text-decoration: none; color: #0B1F3A\">Ace Ecofin Advisors<\/a>\n      <div style=\"display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px; font-weight: 500\">\n        <a href=\"#services\" style=\"text-decoration: none\">Services<\/a>\n        <a href=\"#india-desk\" style=\"text-decoration: none\">India Desk<\/a>\n        <a href=\"#how\" style=\"text-decoration: none\">How we work<\/a>\n        <a href=\"#about\" style=\"text-decoration: none\">About<\/a>\n        <a href=\"#contact\" style=\"text-decoration: none; background: #0F766E; color: #FFFFFF; padding: 12px 20px; border-radius: 8px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center\">Book a free call<\/a>\n      <\/div>\n    <\/nav>\n  <\/header>\n\n  <!-- Hero -->\n  <section id=\"top\" style=\"background: #0B1F3A; color: #FFFFFF\">\n    <div style=\"max-width: 1200px; margin: 0 auto; padding: 96px 32px 88px; display: flex; flex-direction: column; gap: 28px\">\n      <p style=\"margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8FD6CC\">Offshore back office for accounting firms<\/p>\n      <h1 style=\"margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 60px; line-height: 1.05; max-width: 880px\">Bookkeeping and India tax support, delivered under your firm's name.<\/h1>\n      <p style=\"margin: 0; font-size: 20px; line-height: 1.55; color: #C9D3E0; max-width: 720px\">We help CPA and accounting firms in the US, UK, Canada, Australia and beyond take on more clients without hiring more staff. You keep the client relationship and the final sign-off.<\/p>\n      <div style=\"display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px\">\n        <a href=\"#contact\" style=\"background: #0F766E; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 16px 28px; border-radius: 8px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center\">Book a free 30-minute call<\/a>\n        <a href=\"#services\" style=\"color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 16px 28px; border-radius: 8px; border: 1px solid #5B6E88; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center\">See our services<\/a>\n      <\/div>\n      <ul style=\"list-style: none; margin: 24px 0 0; padding: 28px 0 0; border-top: 1px solid #22385A; display: flex; flex-wrap: wrap; gap: 16px 40px; font-size: 15px; color: #DCE3EC\">\n        <li style=\"display: flex; align-items: center; gap: 10px\"><svg aria-hidden=\"true\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#8FD6CC\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6 9 17l-5-5\"><\/path><\/svg>GST-registered firm in India<\/li>\n        <li style=\"display: flex; align-items: center; gap: 10px\"><svg aria-hidden=\"true\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#8FD6CC\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6 9 17l-5-5\"><\/path><\/svg>White-label: we work under your brand<\/li>\n        <li style=\"display: flex; align-items: center; gap: 10px\"><svg aria-hidden=\"true\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#8FD6CC\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6 9 17l-5-5\"><\/path><\/svg>NDA-backed confidentiality<\/li>\n        <li style=\"display: flex; align-items: center; gap: 10px\"><svg aria-hidden=\"true\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#8FD6CC\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6 9 17l-5-5\"><\/path><\/svg>Free pilot before you commit<\/li>\n      <\/ul>\n    <\/div>\n  <\/section>\n\n  <!-- Services -->\n  <section id=\"services\" style=\"max-width: 1200px; margin: 0 auto; padding: 96px 32px 48px; display: flex; flex-direction: column; gap: 40px\">\n    <div style=\"display: flex; flex-direction: column; gap: 12px; max-width: 720px\">\n      <p style=\"margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #0F766E\">What we do<\/p>\n      <h2 style=\"margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 42px; line-height: 1.1\">Two ways we take work off your plate<\/h2>\n    <\/div>\n    <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px\">\n      <article style=\"background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 16px; padding: 36px; display: flex; flex-direction: column; gap: 18px\">\n        <div style=\"width: 48px; height: 48px; border-radius: 12px; background: #E3F3F0; display: flex; align-items: center; justify-content: center\"><svg aria-hidden=\"true\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#0F766E\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2.5Z\"><\/path><path d=\"M8 7h7M8 11h7\"><\/path><\/svg><\/div>\n        <h3 style=\"margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600\">Bookkeeping &amp; accounting<\/h3>\n        <p style=\"margin: 0; font-size: 16px; line-height: 1.6; color: #44546A\">Recurring and catch-up work, done in your software and to your checklists.<\/p>\n        <ul style=\"margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.9; color: #1F2F45\">\n          <li>Monthly / quarterly bookkeeping and categorization<\/li>\n          <li>Bank, credit card and loan reconciliations<\/li>\n          <li>Month-end and year-end close, adjusting entries<\/li>\n          <li>Catch-up and clean-up of books that are behind<\/li>\n          <li>AP / AR, financial statements and management reports<\/li>\n          <li>Excel automation and data clean-up<\/li>\n        <\/ul>\n      <\/article>\n      <article id=\"india-desk\" style=\"background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 16px; padding: 36px; display: flex; flex-direction: column; gap: 18px\">\n        <div style=\"width: 48px; height: 48px; border-radius: 12px; background: #E3F3F0; display: flex; align-items: center; justify-content: center\"><svg aria-hidden=\"true\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#0F766E\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"><\/circle><path d=\"M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18\"><\/path><\/svg><\/div>\n        <h3 style=\"margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600\">International tax: your India desk<\/h3>\n        <p style=\"margin: 0; font-size: 16px; line-height: 1.6; color: #44546A\">When your clients have an Indian connection, we handle the Indian side so you don't have to.<\/p>\n        <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px\">\n          <div style=\"display: flex; flex-direction: column; gap: 8px\">\n            <h4 style=\"margin: 0; font-size: 15px; font-weight: 600; color: #0F766E\">For NRI clients<\/h4>\n            <ul style=\"margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.8; color: #1F2F45\">\n              <li>Indian income tax returns<\/li>\n              <li>DTAA relief, foreign tax credits and TRC<\/li>\n              <li>Tax on sale of Indian property, shares and funds<\/li>\n              <li>Lower or nil TDS applications<\/li>\n            <\/ul>\n          <\/div>\n          <div style=\"display: flex; flex-direction: column; gap: 8px\">\n            <h4 style=\"margin: 0; font-size: 15px; font-weight: 600; color: #0F766E\">For businesses with Indian vendors<\/h4>\n            <ul style=\"margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.8; color: #1F2F45\">\n              <li>Withholding tax and treaty rates<\/li>\n              <li>Remittance compliance<\/li>\n              <li>GST on cross-border services<\/li>\n              <li>Transfer pricing and benchmarking<\/li>\n              <li>Permanent establishment (PE) reviews<\/li>\n            <\/ul>\n          <\/div>\n        <\/div>\n      <\/article>\n    <\/div>\n    <div style=\"display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: 15px; color: #44546A\">\n      <span style=\"font-weight: 600; color: #0B1F3A\">We work in:<\/span>\n      <span style=\"background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 999px; padding: 8px 16px\">QuickBooks Online<\/span>\n      <span style=\"background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 999px; padding: 8px 16px\">Xero<\/span>\n      <span style=\"background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 999px; padding: 8px 16px\">Zoho Books<\/span>\n      <span style=\"background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 999px; padding: 8px 16px\">[Sage / MYOB]<\/span>\n      <span style=\"background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 999px; padding: 8px 16px\">Dext / Hubdoc<\/span>\n      <span style=\"background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 999px; padding: 8px 16px\">Excel<\/span>\n    <\/div>\n  <\/section>\n\n  <!-- How we work -->\n  <section id=\"how\" style=\"max-width: 1200px; margin: 0 auto; padding: 64px 32px; display: flex; flex-direction: column; gap: 40px\">\n    <div style=\"display: flex; flex-direction: column; gap: 12px; max-width: 720px\">\n      <p style=\"margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #0F766E\">How we work<\/p>\n      <h2 style=\"margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 42px; line-height: 1.1\">Start small. See the quality first.<\/h2>\n    <\/div>\n    <ol style=\"list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px\">\n      <li style=\"border-top: 3px solid #0F766E; padding-top: 20px; display: flex; flex-direction: column; gap: 10px\">\n        <span style=\"font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: #0F766E\">01<\/span>\n        <h3 style=\"margin: 0; font-size: 20px; font-weight: 600\">Intro call<\/h3>\n        <p style=\"margin: 0; font-size: 16px; line-height: 1.6; color: #44546A\">30 minutes to understand your clients, software and the work you want to hand off.<\/p>\n      <\/li>\n      <li style=\"border-top: 3px solid #0F766E; padding-top: 20px; display: flex; flex-direction: column; gap: 10px\">\n        <span style=\"font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: #0F766E\">02<\/span>\n        <h3 style=\"margin: 0; font-size: 20px; font-weight: 600\">Free pilot<\/h3>\n        <p style=\"margin: 0; font-size: 16px; line-height: 1.6; color: #44546A\">We complete [one client file] at no cost so you can judge our work before committing.<\/p>\n      <\/li>\n      <li style=\"border-top: 3px solid #0F766E; padding-top: 20px; display: flex; flex-direction: column; gap: 10px\">\n        <span style=\"font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: #0F766E\">03<\/span>\n        <h3 style=\"margin: 0; font-size: 20px; font-weight: 600\">Onboarding<\/h3>\n        <p style=\"margin: 0; font-size: 16px; line-height: 1.6; color: #44546A\">We document your process into a checklist for each client and sign an NDA.<\/p>\n      <\/li>\n      <li style=\"border-top: 3px solid #0F766E; padding-top: 20px; display: flex; flex-direction: column; gap: 10px\">\n        <span style=\"font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: #0F766E\">04<\/span>\n        <h3 style=\"margin: 0; font-size: 20px; font-weight: 600\">Ongoing work<\/h3>\n        <p style=\"margin: 0; font-size: 16px; line-height: 1.6; color: #44546A\">A named contact, agreed turnaround times and regular status updates.<\/p>\n      <\/li>\n    <\/ol>\n  <\/section>\n\n  <!-- About -->\n  <section id=\"about\" style=\"background: #FFFFFF; border-top: 1px solid #E3E6EB; border-bottom: 1px solid #E3E6EB\">\n    <div style=\"max-width: 1200px; margin: 0 auto; padding: 88px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; align-items: center\">\n      <div style=\"display: flex; flex-direction: column; gap: 18px\">\n        <p style=\"margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #0F766E\">Who we are<\/p>\n        <h2 style=\"margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 42px; line-height: 1.1\">A small firm. Direct access to the founder.<\/h2>\n        <p style=\"margin: 0; font-size: 17px; line-height: 1.65; color: #44546A\">Ace Ecofin Advisors is a GST-registered financial advisory and accounting firm based in [City], India. We work behind the scenes for accounting firms abroad, inside your software and following your checklists.<\/p>\n        <p style=\"margin: 0; font-size: 17px; line-height: 1.65; color: #44546A\">Because we're small, you talk directly to the person responsible for your work.<\/p>\n      <\/div>\n      <div style=\"background: #F6F7F9; border: 1px solid #E3E6EB; border-radius: 16px; padding: 32px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap\">\n        <div role=\"img\" aria-label=\"Founder photo placeholder\" style=\"width: 120px; height: 120px; border-radius: 999px; background: #DCE3EC; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #44546A; flex-shrink: 0\">[Photo]<\/div>\n        <div style=\"display: flex; flex-direction: column; gap: 6px; flex: 1 1 200px\">\n          <p style=\"margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600\">[Your name]<\/p>\n          <p style=\"margin: 0; font-size: 15px; font-weight: 500; color: #0F766E\">Founder, Ace Ecofin Advisors<\/p>\n          <p style=\"margin: 0; font-size: 15px; line-height: 1.6; color: #44546A\">[Qualifications] with [X] years of experience in accounting, tax compliance, transfer pricing and financial analysis.<\/p>\n        <\/div>\n      <\/div>\n    <\/div>\n  <\/section>\n\n  <!-- Contact -->\n  <section id=\"contact\" style=\"max-width: 1200px; margin: 0 auto; padding: 96px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px\">\n    <div style=\"display: flex; flex-direction: column; gap: 20px\">\n      <p style=\"margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #0F766E\">Contact us<\/p>\n      <h2 style=\"margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 42px; line-height: 1.1\">Let's start with a free 30-minute call.<\/h2>\n      <p style=\"margin: 0; font-size: 17px; line-height: 1.65; color: #44546A\">Tell us about your firm and the work you'd like to hand off. We'll reply within one business day.<\/p>\n      <dl style=\"margin: 8px 0 0; display: grid; grid-template-columns: max-content 1fr; gap: 14px 24px; font-size: 16px\">\n        <dt style=\"font-weight: 600\">Email<\/dt><dd style=\"margin: 0\"><a href=\"mailto:[email]\">[email]<\/a><\/dd>\n        <dt style=\"font-weight: 600\">Phone / WhatsApp<\/dt><dd style=\"margin: 0\">[+91 XXXXX XXXXX]<\/dd>\n        <dt style=\"font-weight: 600\">LinkedIn<\/dt><dd style=\"margin: 0\"><a href=\"#contact\">[LinkedIn page]<\/a><\/dd>\n        <dt style=\"font-weight: 600\">Book a call<\/dt><dd style=\"margin: 0\"><a href=\"#contact\">[Calendly link]<\/a><\/dd>\n        <dt style=\"font-weight: 600\">Office<\/dt><dd style=\"margin: 0\">[City], India<\/dd>\n      <\/dl>\n    <\/div>\n    <form name=\"contact\" method=\"POST\" data-netlify=\"true\" netlify-honeypot=\"bot-field\" aria-label=\"Contact form\" style=\"background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 16px; padding: 36px; display: flex; flex-direction: column; gap: 18px\">\n      <input type=\"hidden\" name=\"form-name\" value=\"contact\">\n      <p hidden><label>Leave this empty: <input name=\"bot-field\"><\/label><\/p>\n      <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px\">\n        <div style=\"display: flex; flex-direction: column; gap: 6px\">\n          <label for=\"cf-name\" style=\"font-size: 14px; font-weight: 600\">Your name<\/label>\n          <input id=\"cf-name\" name=\"name\" type=\"text\" required style=\"font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #B8C2CF; border-radius: 8px; min-height: 44px; box-sizing: border-box\">\n        <\/div>\n        <div style=\"display: flex; flex-direction: column; gap: 6px\">\n          <label for=\"cf-firm\" style=\"font-size: 14px; font-weight: 600\">Firm name<\/label>\n          <input id=\"cf-firm\" name=\"firm\" type=\"text\" style=\"font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #B8C2CF; border-radius: 8px; min-height: 44px; box-sizing: border-box\">\n        <\/div>\n      <\/div>\n      <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px\">\n        <div style=\"display: flex; flex-direction: column; gap: 6px\">\n          <label for=\"cf-email\" style=\"font-size: 14px; font-weight: 600\">Email<\/label>\n          <input id=\"cf-email\" name=\"email\" type=\"email\" required style=\"font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #B8C2CF; border-radius: 8px; min-height: 44px; box-sizing: border-box\">\n        <\/div>\n        <div style=\"display: flex; flex-direction: column; gap: 6px\">\n          <label for=\"cf-country\" style=\"font-size: 14px; font-weight: 600\">Country<\/label>\n          <select id=\"cf-country\" name=\"country\" style=\"font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #B8C2CF; border-radius: 8px; min-height: 44px; box-sizing: border-box; background: #FFFFFF\">\n            <option>United States<\/option>\n            <option>United Kingdom<\/option>\n            <option>Canada<\/option>\n            <option>Australia<\/option>\n            <option>UAE<\/option>\n            <option>Other<\/option>\n          <\/select>\n        <\/div>\n      <\/div>\n      <div style=\"display: flex; flex-direction: column; gap: 6px\">\n        <label for=\"cf-need\" style=\"font-size: 14px; font-weight: 600\">I'm interested in<\/label>\n        <select id=\"cf-need\" name=\"service\" style=\"font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #B8C2CF; border-radius: 8px; min-height: 44px; box-sizing: border-box; background: #FFFFFF\">\n          <option>Bookkeeping &amp; accounting<\/option>\n          <option>India desk: NRI taxation<\/option>\n          <option>India desk: cross-border business tax<\/option>\n          <option>Something else<\/option>\n        <\/select>\n      <\/div>\n      <div style=\"display: flex; flex-direction: column; gap: 6px\">\n        <label for=\"cf-msg\" style=\"font-size: 14px; font-weight: 600\">Message<\/label>\n        <textarea id=\"cf-msg\" name=\"message\" rows=\"5\" style=\"font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #B8C2CF; border-radius: 8px; resize: vertical\"><\/textarea>\n      <\/div>\n      <button type=\"submit\" style=\"font: inherit; font-size: 16px; font-weight: 600; background: #0F766E; color: #FFFFFF; border: 0; border-radius: 8px; padding: 14px 24px; min-height: 48px; cursor: pointer; align-self: flex-start\">Send message<\/button>\n    <\/form>\n  <\/section>\n\n  <!-- Footer -->\n  <footer style=\"background: #0B1F3A; color: #C9D3E0\">\n    <div style=\"max-width: 1200px; margin: 0 auto; padding: 40px 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 14px\">\n      <p style=\"margin: 0\"><span style=\"font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #FFFFFF\">Ace Ecofin Advisors<\/span> \u00b7 GST-registered \u00b7 [City], India<\/p>\n      <p style=\"margin: 0\">\u00a9 2026 Ace Ecofin Advisors. All rights reserved.<\/p>\n    <\/div>\n  <\/footer>\n\n<\/div>\n<\/body>\n<\/html>\n";
+const frame=document.getElementById('frame'),d=document.getElementById('vDesk'),m=document.getElementById('vMob');
+d.onclick=()=>{frame.style.width='100%';d.setAttribute('aria-pressed','true');m.setAttribute('aria-pressed','false')};
+m.onclick=()=>{frame.style.width='390px';m.setAttribute('aria-pressed','true');d.setAttribute('aria-pressed','false')};
+document.getElementById('dl').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([SITE],{type:'text/html'}));a.download='index.html';document.body.appendChild(a);a.click();a.remove();};
+</script>
+</body>
+</html>
