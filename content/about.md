@@ -1,14 +1,7 @@
 ---
-# ABOUT US: firm description (below the second "---") and the three highlights.
+# ABOUT US: firm description (below the second "---").
 id: about
 heading: About Us
-stats:
-  - value: 20+ years
-    label: Taxation & accounting experience
-  - value: Chartered Accountants
-    label: Qualified professional team
-  - value: Individuals & Corporates
-    label: Clients served
 ---
 Ace Ecofin Advisors is a financial advisory and accounting firm based in Central India, offering accounting, bookkeeping and taxation services.
 

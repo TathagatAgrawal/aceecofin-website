@@ -1,14 +1,14 @@
 /* Ace Ecofin Advisors: site styles.
    One centred column. Serif headings (Playfair Display), sans-serif text (Inter).
+   Sections are separated by space and a short gold bar only: no full-width lines.
    Design tokens first; change colours and sizes here. */
 
 :root {
-  --ink: #0B1F3A;          /* deep navy: headings and text */
+  --ink: #0B1F3A;          /* deep navy: headings and links */
   --text: #26334A;         /* body text */
-  --muted: #5A6577;        /* secondary text */
-  --gold: #8B6B2E;         /* accent: labels, rules, bullets (4.9:1 on white) */
-  --gold-soft: #CDB88A;    /* decorative rules only */
-  --line: #E6E1D6;         /* warm dividers */
+  --muted: #5A6577;        /* secondary text (5.6:1 on ivory) */
+  --gold: #8B6B2E;         /* accent: gold marks, list dashes, hover, focus (4.7:1 on ivory) */
+  --gold-soft: #CDB88A;    /* link underlines only */
   --bg: #FAF8F4;           /* ivory page */
 
   --font-head: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -18,13 +18,13 @@
   --h1: clamp(40px, 6.4vw, 60px);
   --h2: clamp(30px, 4.2vw, 38px);
   --h3: clamp(22px, 2.8vw, 25px);
-  --h4: 13px;
+  --h4: 17px;
 
-  --col: 700px;
+  --col: 620px;            /* about 70 characters per line of body text */
   --gutter: 28px;
-  --section-y: 72px;
+  --section-y: 96px;
 }
-@media (max-width: 640px) { :root { --gutter: 22px; --section-y: 52px; } }
+@media (max-width: 640px) { :root { --gutter: 22px; --section-y: 64px; } }
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -47,7 +47,8 @@ main { flex: 1 0 auto; }
 img { max-width: 100%; height: auto; display: block; }
 h1, h2, h3, h4, p, ul, dl, dd { margin: 0; }
 h1, h2, h3 { font-family: var(--font-head); color: var(--ink); text-wrap: balance; }
-h1, h2, h3, .stat__value, .details dd { font-variant-numeric: lining-nums; }
+h1, h2, h3, .details dd { font-variant-numeric: lining-nums; }
+p, li { text-wrap: pretty; }
 a { color: var(--ink); text-decoration-color: var(--gold-soft); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .15s, text-decoration-color .15s; }
 a:hover { color: var(--gold); text-decoration-color: var(--gold); }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 2px; }
@@ -58,6 +59,7 @@ a:hover { color: var(--gold); text-decoration-color: var(--gold); }
   background: var(--ink); color: #fff; padding: 10px 14px;
 }
 .skip-link:focus { top: 16px; color: #fff; }
+.skip-link:hover { color: #fff; }
 
 .col { max-width: var(--col); margin: 0 auto; padding: 0 var(--gutter); }
 
@@ -76,19 +78,17 @@ a:hover { color: var(--gold); text-decoration-color: var(--gold); }
   background: var(--gold);
 }
 .intro__tagline {
-  margin: 24px auto 0; max-width: 520px;
-  font-size: 13px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
-  line-height: 1.9; color: var(--muted);
+  margin: 24px auto 0; max-width: 34ch;
+  font-size: 19px; line-height: 1.55; color: var(--text);
+  text-wrap: balance;
 }
+@media (max-width: 480px) { .intro__tagline { font-size: 17px; } }
 
 /* ---------- Sections ---------- */
 .section { padding: 0 0 var(--section-y); }
-.section > .col::before {
-  content: ""; display: block; height: 1px; background: var(--line); margin-bottom: var(--section-y);
-}
 .section__heading {
   font-size: var(--h2); font-weight: 600; line-height: 1.15; letter-spacing: -0.005em;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 .section__heading::before {
   content: ""; display: block; width: 36px; height: 2px; margin-bottom: 20px;
@@ -97,48 +97,31 @@ a:hover { color: var(--gold); text-decoration-color: var(--gold); }
 .prose > * + * { margin-top: 1.1em; }
 .prose ul, .prose ol { padding-left: 22px; }
 
-/* ---------- About: highlights ---------- */
-.stats { margin-top: 40px; border-top: 1px solid var(--line); }
-.stat {
-  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
-  gap: 2px 24px; padding: 18px 0; border-bottom: 1px solid var(--line);
-}
-.stat__value { font-family: var(--font-head); font-weight: 600; font-size: 21px; color: var(--ink); }
-.stat__label { font-size: 12.5px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-
 /* ---------- Services ---------- */
-.service + .service { margin-top: 52px; }
+.service + .service { margin-top: 56px; }
 .service__title { font-size: var(--h3); font-weight: 600; line-height: 1.3; }
-.service__intro { margin-top: 10px; color: var(--muted); font-style: italic; }
+.service__intro { margin-top: 12px; font-size: 18px; line-height: 1.65; color: var(--text); }
 .service__group {
-  margin-top: 26px; font-size: var(--h4); font-weight: 600;
-  letter-spacing: .14em; text-transform: uppercase; color: var(--gold);
+  margin-top: 28px; font-size: var(--h4); font-weight: 600; line-height: 1.5; color: var(--ink);
+  text-wrap: balance;
 }
-.list { margin-top: 14px; padding: 0; list-style: none; }
-.list li { position: relative; padding-left: 26px; }
-.list li + li { margin-top: 8px; }
+.list { margin-top: 12px; padding: 0; list-style: none; }
+.list li { position: relative; padding-left: 26px; line-height: 1.6; }
+.list li + li { margin-top: 12px; }
 .list li::before {
-  content: ""; position: absolute; left: 2px; top: .85em;
+  content: ""; position: absolute; left: 2px; top: .8em;
   width: 12px; height: 1px; background: var(--gold);
 }
-.software {
-  margin-top: 22px; padding-top: 16px; border-top: 1px dashed var(--line);
-  font-size: 15.5px; color: var(--muted);
-}
+.software { margin-top: 24px; }
 .software__label { font-weight: 600; color: var(--ink); margin-right: 4px; }
 
 /* ---------- Contact ---------- */
-.details { display: flex; flex-direction: column; gap: 14px; }
-.details > div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; align-items: baseline; }
+.details { display: flex; flex-direction: column; gap: 20px; }
 .details dt { font-size: 12.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-.details dd { font-family: var(--font-head); font-size: 22px; overflow-wrap: anywhere; }
-@media (max-width: 480px) {
-  .details > div { grid-template-columns: 1fr; gap: 2px; }
-  .details dd { font-size: 20px; }
-}
+.details dd { margin-top: 2px; font-family: var(--font-head); font-size: 22px; overflow-wrap: anywhere; }
+@media (max-width: 480px) { .details dd { font-size: 20px; } }
 
 /* ---------- Simple pages (404) ---------- */
-.section--first > .col::before { display: none; }
 .section--first > .col { padding-top: 32px; display: flex; flex-direction: column; gap: 22px; text-align: center; align-items: center; }
 .section--first .intro__title::after { display: none; }
 .link-button {
@@ -151,5 +134,4 @@ a:hover { color: var(--gold); text-decoration-color: var(--gold); }
 
 /* ---------- Footer ---------- */
 .site-footer { padding: 0 0 48px; text-align: center; }
-.site-footer .col::before { content: ""; display: block; height: 1px; background: var(--line); margin-bottom: 28px; }
-.site-footer p { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.site-footer p { font-size: 14px; line-height: 1.6; color: var(--muted); text-wrap: balance; }

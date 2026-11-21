@@ -3,15 +3,5 @@
   <div class="col">
     <h2 class="section__heading" id="h-about">{{ s.heading }}</h2>
     <div class="prose">{{ s.body | md | safe }}</div>
-    {%- if s.stats and s.stats.length %}
-    <dl class="stats">
-      {%- for st in s.stats %}
-      <div class="stat">
-        <dt class="stat__value">{{ st.value }}</dt>
-        <dd class="stat__label">{{ st.label }}</dd>
-      </div>
-      {%- endfor %}
-    </dl>
-    {%- endif %}
   </div>
 </section>

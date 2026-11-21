@@ -22,12 +22,12 @@ The site is a simple one-page site at **aceecofinadvisors.com**, hosted on Netli
 
 ## 2. Content structure
 
-All text lives in `content/`, separate from the layout. Each section is a Markdown file. The top of each file, between `---` lines, holds labelled fields (headings, lists, stats). Below that is the body, ordinary Markdown paragraphs that can use **bold**, *italic*, links and lists. `content/site.yml` holds settings and contact details. Text is changed by editing these files in the repo.
+All text lives in `content/`, separate from the layout. Each section is a Markdown file. The top of each file, between `---` lines, holds labelled fields (headings, lists). Below that is the body, ordinary Markdown paragraphs that can use **bold**, *italic*, links and lists. `content/site.yml` holds settings and contact details. Text is changed by editing these files in the repo.
 
 | File | Content (from the firm profile) |
 |---|---|
 | `content/site.yml` | Firm name, tagline, contact details (email, LinkedIn), footer line, SEO text, section order |
-| `content/about.md` | **About Us**: two paragraphs and three highlights (20+ years · Chartered Accountants · Individuals & Corporates) |
+| `content/about.md` | **About Us**: two paragraphs. The three highlights were removed because they repeated the second paragraph. |
 | `content/services.md` | **Services Offered**: Bookkeeping & accounting (5 items plus "Software we work in"), and International taxation: your India desk (intro and two titled lists) |
 | `content/contact.md` | **Contact Us** (the profile's "Let's work together", renamed by the owner): labels for Email and LinkedIn |
 | `content/notfound.md` | Text for the 404 page (the only page text not from the profile, because the site needs it to work) |
@@ -78,15 +78,14 @@ aceecofin-website/
 
 | Element | Treatment |
 |---|---|
-| Layout | A single column, at most 700px wide, centred, with 28px side padding (22px on phones). No grids, cards, side-by-side blocks, menu bar or coloured bands. |
+| Layout | A single column, at most 620px wide (about 70 characters per line), centred, with 28px side padding (22px on phones). No grids, tables, cards, side-by-side blocks, menu bar, coloured bands or full-width lines. |
 | Background | Warm ivory (`#FAF8F4`) throughout |
 | Header | The logo mark only, centred, linking home |
-| Intro | Centred. Firm name as the `h1` in Playfair Display, a short gold rule, then the tagline in small spaced capitals |
-| Section headings (`h2`) | Playfair Display, below a short gold rule: About Us, Services Offered, Contact Us. Sections are separated by thin warm rules aligned with the text. |
-| About highlights | A stacked list with dividers: value in serif on the left, label in small spaced capitals on the right (they wrap on phones) |
-| Services | Service name as an `h3` in serif. The India desk intro is in italics. List titles are in small gold capitals. Bullets are thin gold dashes. The software list is a single line under a dashed rule. |
-| Contact | Small capital labels, with values in serif (the email is the main call to action) |
-| Footer | "Ace Ecofin Advisors · Accounting · Bookkeeping · Taxation" in small spaced capitals, centred |
+| Intro | Centred. Firm name as the `h1` in Playfair Display, a short gold rule, then the tagline at 19px in sentence case |
+| Section headings (`h2`) | Playfair Display, below a short gold rule: About Us, Services Offered, Contact Us. Sections are separated by white space only (96px, 64px on phones). |
+| Services | Service name as an `h3` in serif. The India desk intro is upright at 18px. List titles are navy, semibold and in sentence case. Bullets are thin gold dashes. The software list is a single line below the list. |
+| Contact | A small capital label above each value in serif (the email is the main call to action) |
+| Footer | "Ace Ecofin Advisors · Accounting · Bookkeeping · Taxation" in plain 14px text, centred |
 
 ### Heading scale (always h1 > h2 > h3)
 | Level | Font | Size |
@@ -94,7 +93,7 @@ aceecofin-website/
 | `h1` firm name | Playfair Display 600 | `clamp(40px, 6.4vw, 60px)` |
 | `h2` section | Playfair Display 600 | `clamp(30px, 4.2vw, 38px)` |
 | `h3` service | Playfair Display 600 | `clamp(22px, 2.8vw, 25px)` |
-| `h4` list title | Inter 600, capitals | 13px |
+| `h4` list title | Inter 600, sentence case | 17px |
 | Body | Inter 400 | 17px, line-height 1.75 |
 
 Headings use standard-height (lining) numerals, so "20+" sits evenly with the text.
@@ -105,11 +104,10 @@ Headings use standard-height (lining) numerals, so "20+" sits evenly with the te
 | `--ink` | `#0B1F3A` | Headings, links |
 | `--text` | `#26334A` | Body text |
 | `--muted` | `#5A6577` | Secondary text (about 5.6:1 on ivory) |
-| `--gold` | `#8B6B2E` | Rules, bullets, list titles, link hover (about 4.7:1 on ivory) |
+| `--gold` | `#8B6B2E` | Gold marks, list dashes, link hover, focus (about 4.7:1 on ivory) |
 | `--gold-soft` | `#CDB88A` | Link underlines (decorative only) |
-| `--line` | `#E6E1D6` | Dividers |
 | `--bg` | `#FAF8F4` | Page |
-| `--col` | `700px` | Column width |
+| `--col` | `620px` | Column width |
 
 ### Accessibility
 - Text contrast of at least 4.5:1, a skip link, and one `h1` per page followed by `h2`/`h3` in order.
@@ -120,7 +118,7 @@ Headings use standard-height (lining) numerals, so "20+" sits evenly with the te
 ## 5. Page content (top to bottom, all from the firm profile)
 
 1. **Ace Ecofin Advisors**: *Bookkeeping & International Taxation Support for Accounting Firms*
-2. **About Us**: "Ace Ecofin Advisors is a financial advisory and accounting firm based in Central India…" and "Our team of qualified Chartered Accountants brings more than 20 years of experience…". Highlights: 20+ years (Taxation & accounting experience) · Chartered Accountants (Qualified professional team) · Individuals & Corporates (Clients served).
+2. **About Us**: "Ace Ecofin Advisors is a financial advisory and accounting firm based in Central India…" and "Our team of qualified Chartered Accountants brings more than 20 years of experience…".
 3. **Services Offered**
    - *Bookkeeping & accounting*: monthly/quarterly bookkeeping and transaction categorisation; bank, credit card and loan reconciliations; month-end and year-end close, adjusting entries and catch-up; AP/AR, financial statements and management reports; Excel automation and data clean-up. *Software we work in:* QuickBooks Online · Xero · Zoho Books · Excel · Tally Prime.
    - *International taxation: your India desk*: "When your clients have an Indian connection…". **For NRI clients** (4 items) and **For businesses with Indian vendors or operations** (4 items).
