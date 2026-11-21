@@ -1,0 +1,48 @@
+{%- import "icons.njk" as icons -%}
+{%- set s = copy.services -%}
+<section id="{{ s.id or 'services' }}" class="section">
+  <div class="wrap stack-lg">
+    <header class="section-head">
+      {%- if s.eyebrow %}<p class="eyebrow">{{ s.eyebrow }}</p>{% endif %}
+      <h2 class="h2">{{ s.heading }}</h2>
+    </header>
+
+    <div class="grid grid--cards">
+      {%- for card in s.cards %}
+      <article class="card service-card"{% if card.id %} id="{{ card.id }}"{% endif %}>
+        <div class="icon-tile">{{ icons.icon(card.icon) | safe }}</div>
+        <h3 class="h3">{{ card.title }}</h3>
+        {%- if card.intro %}<p class="muted">{{ card.intro | mdInline | safe }}</p>{% endif %}
+        {%- if card.items and card.items.length %}
+        <ul class="list">
+          {%- for item in card.items %}<li>{{ item | mdInline | safe }}</li>{% endfor %}
+        </ul>
+        {%- endif %}
+        {%- if card.groups and card.groups.length %}
+        <div class="grid grid--groups">
+          {%- for g in card.groups %}
+          <div class="group">
+            <h4 class="group__title">{{ g.title }}</h4>
+            <ul class="list list--sm">
+              {%- for item in g.items %}<li>{{ item | mdInline | safe }}</li>{% endfor %}
+            </ul>
+          </div>
+          {%- endfor %}
+        </div>
+        {%- endif %}
+      </article>
+      {%- endfor %}
+    </div>
+
+    {%- if s.software and s.software.items.length %}
+    <div class="chip-row">
+      <span class="chip-row__label">{{ s.software.label }}</span>
+      <ul>
+        {%- for sw in s.software.items %}<li class="chip">{{ sw }}</li>{% endfor %}
+      </ul>
+    </div>
+    {%- endif %}
+
+    {%- if s.body %}<div class="prose muted">{{ s.body | md | safe }}</div>{% endif %}
+  </div>
+</section>

@@ -1,0 +1,10 @@
+{#- Shared body for the thank-you and 404 pages. Expects `p` = a content file. -#}
+<section class="simple-page">
+  <div class="wrap simple-page__inner">
+    <h1 class="h2">{{ p.heading }}</h1>
+    <div class="prose prose--lead">{{ p.body | md | safe }}</div>
+    {%- if p.button %}
+    <p><a class="btn btn--primary" href="{{ p.button.href }}">{{ p.button.label }}</a></p>
+    {%- endif %}
+  </div>
+</section>

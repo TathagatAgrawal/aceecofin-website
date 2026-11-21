@@ -1,0 +1,7 @@
+---
+layout: base.njk
+permalink: /
+---
+{%- for name in site.sections %}
+{% include "sections/" ~ name ~ ".njk" %}
+{%- endfor %}

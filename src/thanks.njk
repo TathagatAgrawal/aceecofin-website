@@ -1,0 +1,10 @@
+---
+layout: base.njk
+permalink: /thanks/
+noindex: true
+eleventyExcludeFromCollections: true
+eleventyComputed:
+  title: "{{ copy.thanks.title }}"
+---
+{%- set p = copy.thanks %}
+{% include "simple-page.njk" %}

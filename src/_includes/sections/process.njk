@@ -1,0 +1,19 @@
+{%- set s = copy.process -%}
+<section id="{{ s.id or 'how' }}" class="section section--tight">
+  <div class="wrap stack-lg">
+    <header class="section-head">
+      {%- if s.eyebrow %}<p class="eyebrow">{{ s.eyebrow }}</p>{% endif %}
+      <h2 class="h2">{{ s.heading }}</h2>
+      {%- if s.body %}<div class="prose muted">{{ s.body | md | safe }}</div>{% endif %}
+    </header>
+    <ol class="grid grid--steps steps">
+      {%- for step in s.steps %}
+      <li class="step">
+        <span class="step__num" aria-hidden="true">{{ "0" if loop.index < 10 }}{{ loop.index }}</span>
+        <h3 class="step__title">{{ step.title }}</h3>
+        <p class="muted">{{ step.text | mdInline | safe }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>

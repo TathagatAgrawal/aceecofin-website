@@ -1,0 +1,72 @@
+{%- set s = copy.contact -%}
+{%- set c = site.contact -%}
+{%- set L = s.details_labels -%}
+{%- set f = s.form -%}
+<section id="{{ s.id or 'contact' }}" class="section">
+  <div class="wrap contact">
+    <div class="contact__info stack">
+      {%- if s.eyebrow %}<p class="eyebrow">{{ s.eyebrow }}</p>{% endif %}
+      <h2 class="h2">{{ s.heading }}</h2>
+      <div class="prose prose--lead muted">{{ s.body | md | safe }}</div>
+      <dl class="details">
+        {%- if c.email %}
+        <dt>{{ L.email }}</dt><dd><a href="mailto:{{ c.email }}">{{ c.email }}</a></dd>
+        {%- endif %}
+        {%- if c.phone %}
+        <dt>{{ L.phone }}</dt><dd><a href="tel:+{{ c.phone | digits }}">{{ c.phone }}</a> · <a href="https://wa.me/{{ c.phone | digits }}" target="_blank" rel="noopener">WhatsApp</a></dd>
+        {%- endif %}
+        {%- if c.linkedin %}
+        <dt>{{ L.linkedin }}</dt><dd><a href="{{ c.linkedin }}" target="_blank" rel="noopener">{{ site.name }} on LinkedIn</a></dd>
+        {%- endif %}
+        {%- if c.calendly %}
+        <dt>{{ L.calendly }}</dt><dd><a href="{{ c.calendly }}" target="_blank" rel="noopener">Choose a time</a></dd>
+        {%- endif %}
+        {%- if site.location %}
+        <dt>{{ L.location }}</dt><dd>{{ site.location }}</dd>
+        {%- endif %}
+      </dl>
+    </div>
+
+    <form class="card form" name="contact" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field" aria-label="Contact form">
+      <input type="hidden" name="form-name" value="contact">
+      <p hidden><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+      <div class="form__row">
+        <div class="field">
+          <label for="cf-name">{{ f.name_label }} <span class="req" aria-hidden="true">*</span></label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="cf-firm">{{ f.firm_label }}</label>
+          <input id="cf-firm" name="firm" type="text" autocomplete="organization">
+        </div>
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="cf-email">{{ f.email_label }} <span class="req" aria-hidden="true">*</span></label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="cf-country">{{ f.country_label }}</label>
+          <select id="cf-country" name="country" autocomplete="country-name">
+            {%- for o in f.countries %}<option>{{ o }}</option>{% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="cf-service">{{ f.service_label }}</label>
+        <select id="cf-service" name="service">
+          {%- for o in f.services %}<option>{{ o }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="cf-message">{{ f.message_label }}</label>
+        <textarea id="cf-message" name="message" rows="5"></textarea>
+      </div>
+      <div class="form__footer">
+        <button class="btn btn--primary btn--lg" type="submit">{{ f.submit }}</button>
+        <p class="form__note">{{ f.required_note }}</p>
+      </div>
+    </form>
+  </div>
+</section>
