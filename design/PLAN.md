@@ -16,7 +16,7 @@ The site is a simple one-page site at **aceecofinadvisors.com**, hosted on Netli
 |---|---|
 | **What** | A one-page online version of the firm profile: who the firm is, what it offers, and how to get in touch. |
 | **Who visits** | Accounting firms abroad looking for bookkeeping and Indian tax support. |
-| **What we want them to do** | Email or connect on LinkedIn (the profile's "Let's work together" section). |
+| **What we want them to do** | Email or connect on LinkedIn (the "Contact Us" section). |
 
 ---
 
@@ -26,10 +26,10 @@ All text lives in `content/`, separate from the layout. Each section is a Markdo
 
 | File | Content (from the firm profile) |
 |---|---|
-| `content/site.yml` | Firm name, tagline, contact details (email, LinkedIn, website), footer line, SEO text, section order |
-| `content/about.md` | **About us**: two paragraphs and three highlights (20+ years · Chartered Accountants · Individuals & Corporates) |
-| `content/services.md` | **Services offered**: Bookkeeping & accounting (5 items plus "Software we work in"), and International taxation: your India desk (intro and two titled lists) |
-| `content/contact.md` | **Let's work together**: labels for Email, LinkedIn and Website |
+| `content/site.yml` | Firm name, tagline, contact details (email, LinkedIn), footer line, SEO text, section order |
+| `content/about.md` | **About Us**: two paragraphs and three highlights (20+ years · Chartered Accountants · Individuals & Corporates) |
+| `content/services.md` | **Services Offered**: Bookkeeping & accounting (5 items plus "Software we work in"), and International taxation: your India desk (intro and two titled lists) |
+| `content/contact.md` | **Contact Us** (the profile's "Let's work together", renamed by the owner): labels for Email and LinkedIn |
 | `content/notfound.md` | Text for the 404 page (the only page text not from the profile, because the site needs it to work) |
 
 Rules that keep content consistent:
@@ -47,7 +47,7 @@ Rules that keep content consistent:
 | Site generator | **Eleventy (11ty) 3.1.8**, Nunjucks templates | Outputs plain static HTML at build time, with no client-side JavaScript |
 | Markdown | markdown-it (`html: false`) with `md` and `mdInline` filters | Safe output |
 | Styling | One plain CSS file with design tokens | Simple and easy to adjust |
-| Fonts | Space Grotesk (headings), Inter (text), from Google Fonts | |
+| Fonts | **Playfair Display** (serif, headings), **Inter** (text), from Google Fonts | A serif for headings gives a premium, established feel. Inter keeps body text easy to read. |
 | JavaScript | None | |
 | Hosting | Netlify linked to this GitHub repo: build `npm run build`, publish `_site/` | Automatic deploys, previews for pull requests, free HTTPS |
 | Config | `netlify.toml`: security headers, `www` → apex redirect, `LAUNCH=true` for production | |
@@ -74,31 +74,42 @@ aceecofin-website/
 
 ## 4. Design
 
-**One centred column, and deliberately simple.** It reads like a well-set document rather than a marketing page.
+**One centred column, simple, premium and professional.** It reads like a well-set printed firm profile: serif headings, generous white space, a warm ivory page, deep navy type and a restrained muted-gold accent.
 
 | Element | Treatment |
 |---|---|
-| Layout | A single column, at most 720px wide, centred, with 24px side padding (20px on phones). No grids, cards, side-by-side blocks, sticky menu or navy bands. |
-| Background | White throughout |
-| Header | The logo mark only, linking home |
-| Intro | Firm name as the page heading (Space Grotesk, 36–52px) with the tagline below in grey |
-| Sections | Separated by a thin grey rule. Each section heading is a small teal uppercase label: About us, Services offered, Let's work together. |
-| About highlights | A simple stacked list with dividers: value in bold on the left, label in grey on the right (they wrap on phones) |
-| Services | Service name as a subheading, bullet lists with teal bullets, the software list as a single line |
-| Contact | Label and value pairs with plain links |
-| Footer | "Ace Ecofin Advisors · Accounting · Bookkeeping · Taxation" in small grey text above a thin rule |
+| Layout | A single column, at most 700px wide, centred, with 28px side padding (22px on phones). No grids, cards, side-by-side blocks, menu bar or coloured bands. |
+| Background | Warm ivory (`#FAF8F4`) throughout |
+| Header | The logo mark only, centred, linking home |
+| Intro | Centred. Firm name as the `h1` in Playfair Display, a short gold rule, then the tagline in small spaced capitals |
+| Section headings (`h2`) | Playfair Display, below a short gold rule: About Us, Services Offered, Contact Us. Sections are separated by thin warm rules aligned with the text. |
+| About highlights | A stacked list with dividers: value in serif on the left, label in small spaced capitals on the right (they wrap on phones) |
+| Services | Service name as an `h3` in serif. The India desk intro is in italics. List titles are in small gold capitals. Bullets are thin gold dashes. The software list is a single line under a dashed rule. |
+| Contact | Small capital labels, with values in serif (the email is the main call to action) |
+| Footer | "Ace Ecofin Advisors · Accounting · Bookkeeping · Taxation" in small spaced capitals, centred |
+
+### Heading scale (always h1 > h2 > h3)
+| Level | Font | Size |
+|---|---|---|
+| `h1` firm name | Playfair Display 600 | `clamp(40px, 6.4vw, 60px)` |
+| `h2` section | Playfair Display 600 | `clamp(30px, 4.2vw, 38px)` |
+| `h3` service | Playfair Display 600 | `clamp(22px, 2.8vw, 25px)` |
+| `h4` list title | Inter 600, capitals | 13px |
+| Body | Inter 400 | 17px, line-height 1.75 |
+
+Headings use standard-height (lining) numerals, so "20+" sits evenly with the text.
 
 ### Design tokens (`styles.css`)
 | Token | Value | Use |
 |---|---|---|
-| `--ink` | `#0B1F3A` | Headings and text |
-| `--muted` | `#44546A` | Secondary text |
-| `--accent` | `#0F766E` | Links, section labels, bullets |
-| `--line` | `#E3E6EB` | Dividers |
-| `--bg` | `#FFFFFF` | Page |
-| `--col` | `720px` | Column width |
-
-The accent is a single token, so it can be switched to the logo's blue in one line if preferred.
+| `--ink` | `#0B1F3A` | Headings, links |
+| `--text` | `#26334A` | Body text |
+| `--muted` | `#5A6577` | Secondary text (about 5.6:1 on ivory) |
+| `--gold` | `#8B6B2E` | Rules, bullets, list titles, link hover (about 4.7:1 on ivory) |
+| `--gold-soft` | `#CDB88A` | Link underlines (decorative only) |
+| `--line` | `#E6E1D6` | Dividers |
+| `--bg` | `#FAF8F4` | Page |
+| `--col` | `700px` | Column width |
 
 ### Accessibility
 - Text contrast of at least 4.5:1, a skip link, and one `h1` per page followed by `h2`/`h3` in order.
@@ -109,11 +120,11 @@ The accent is a single token, so it can be switched to the logo's blue in one li
 ## 5. Page content (top to bottom, all from the firm profile)
 
 1. **Ace Ecofin Advisors**: *Bookkeeping & International Taxation Support for Accounting Firms*
-2. **About us**: "Ace Ecofin Advisors is a financial advisory and accounting firm based in Central India…" and "Our team of qualified Chartered Accountants brings more than 20 years of experience…". Highlights: 20+ years (Taxation & accounting experience) · Chartered Accountants (Qualified professional team) · Individuals & Corporates (Clients served).
-3. **Services offered**
+2. **About Us**: "Ace Ecofin Advisors is a financial advisory and accounting firm based in Central India…" and "Our team of qualified Chartered Accountants brings more than 20 years of experience…". Highlights: 20+ years (Taxation & accounting experience) · Chartered Accountants (Qualified professional team) · Individuals & Corporates (Clients served).
+3. **Services Offered**
    - *Bookkeeping & accounting*: monthly/quarterly bookkeeping and transaction categorisation; bank, credit card and loan reconciliations; month-end and year-end close, adjusting entries and catch-up; AP/AR, financial statements and management reports; Excel automation and data clean-up. *Software we work in:* QuickBooks Online · Xero · Zoho Books · Excel · Tally Prime.
    - *International taxation: your India desk*: "When your clients have an Indian connection…". **For NRI clients** (4 items) and **For businesses with Indian vendors or operations** (4 items).
-4. **Let's work together**: Email siddharth@aceecofinadvisors.com · LinkedIn (hidden until the URL is supplied) · Website aceecofinadvisors.com
+4. **Contact Us** (renamed from the profile's "Let's work together"): Email siddharth@aceecofinadvisors.com · LinkedIn (hidden until the URL is supplied). The website link from the profile is left out because visitors are already on the site.
 5. **Footer**: Ace Ecofin Advisors · Accounting · Bookkeeping · Taxation
 
 **Removed** (not in the firm profile): the hero banner copy and buttons, trust points, the "How we work" steps, the founder card, the enquiry form and its thank-you page, the menu bar.
@@ -140,8 +151,7 @@ The accent is a single token, so it can be switched to the logo's blue in one li
 | Item | Notes |
 |---|---|
 | Logo original (SVG, or PNG of at least 1000px) | The current one is upscaled from 176px |
-| LinkedIn URL | Shown in "Let's work together" once added to `site.yml` |
-| Accent colour | Keep teal, or match the logo's blue |
+| LinkedIn URL | Shown in "Contact Us" once added to `site.yml` |
 
 ---
 

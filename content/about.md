@@ -1,7 +1,7 @@
 ---
 # ABOUT US: firm description (below the second "---") and the three highlights.
 id: about
-heading: About us
+heading: About Us
 stats:
   - value: 20+ years
     label: Taxation & accounting experience

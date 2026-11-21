@@ -2,7 +2,7 @@
 # SERVICES OFFERED: one block per service.
 # A block can have an intro, a list of "items", titled "groups" of items, and a "software" line.
 id: services
-heading: Services offered
+heading: Services Offered
 services:
   - id: bookkeeping
     title: Bookkeeping & accounting
