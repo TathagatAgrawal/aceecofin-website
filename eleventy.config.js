@@ -25,7 +25,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("digits", (s) => String(s || "").replace(/\D/g, ""));
   eleventyConfig.addGlobalData("year", () => new Date().getFullYear());
 
-  eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy({ "src/assets": "assets", "src/CNAME": "CNAME" });
   eleventyConfig.addWatchTarget("./content/");
   eleventyConfig.addWatchTarget("./src/assets/");
 
