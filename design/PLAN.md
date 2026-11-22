@@ -74,16 +74,16 @@ aceecofin-website/
 
 ## 4. Design
 
-**One centred column, simple, premium and professional.** It reads like a well-set printed firm profile: serif headings, generous white space, a warm ivory page, deep navy type and a restrained muted-gold accent.
+**One centred column, simple, premium and professional.** It reads like a well-set printed firm profile: serif headings, generous white space, and the logo's own colours: cobalt blue for headings, links and the button, amber orange for small marks, on a near-white page.
 
 | Element | Treatment |
 |---|---|
 | Layout | A single column, at most 620px wide (about 70 characters per line), centred, with 28px side padding (22px on phones). No grids, tables, cards, side-by-side blocks, menu bar, coloured bands or full-width lines. |
-| Background | Warm ivory (`#FAF8F4`) throughout |
+| Background | White with a trace of the logo's blue (`#F8FAFD`) throughout |
 | Header | The logo mark only, centred, linking home |
-| Intro | Centred. Firm name as the `h1` in Playfair Display, a short gold rule, then the tagline at 19px in sentence case |
-| Section headings (`h2`) | Playfair Display, below a short gold rule: About Us, Services Offered, Contact Us. Sections are separated by white space only (96px, 64px on phones). |
-| Services | Service name as an `h3` in serif. The India desk intro is upright at 18px. List titles are navy, semibold and in sentence case. Bullets are thin gold dashes. The software list is a single line below the list. |
+| Intro | Centred. Firm name as the `h1` in Playfair Display, a short orange rule, then the tagline at 19px in sentence case, then a blue "Contact Us" button that jumps to the Contact Us section |
+| Section headings (`h2`) | Playfair Display, below a short orange bar: About Us, Services Offered, Contact Us. Sections are separated by white space only (96px, 64px on phones). |
+| Services | Service name as an `h3` in serif. The India desk intro is upright at 18px. List titles are blue, semibold and in sentence case. Bullets are short orange dashes. The software list is a single line below the list. |
 | Contact | A small capital label above each value in serif (the email is the main call to action) |
 | Footer | "Ace Ecofin Advisors · Accounting · Bookkeeping · Taxation" in plain 14px text, centred |
 
@@ -101,12 +101,14 @@ Headings use standard-height (lining) numerals, so "20+" sits evenly with the te
 ### Design tokens (`styles.css`)
 | Token | Value | Use |
 |---|---|---|
-| `--ink` | `#0B1F3A` | Headings, links |
-| `--text` | `#26334A` | Body text |
-| `--muted` | `#5A6577` | Secondary text (about 5.6:1 on ivory) |
-| `--gold` | `#8B6B2E` | Gold marks, list dashes, link hover, focus (about 4.7:1 on ivory) |
-| `--gold-soft` | `#CDB88A` | Link underlines (decorative only) |
-| `--bg` | `#FAF8F4` | Page |
+| `--ink` | `#24549A` | Logo blue: headings, links, button |
+| `--ink-deep` | `#1D4580` | Button hover |
+| `--text` | `#1C2A42` | Body text |
+| `--muted` | `#566278` | Secondary text (about 5.9:1 on the page) |
+| `--accent` | `#E08A2E` | Logo orange: rules, bars, list dashes only (too light for text) |
+| `--accent-deep` | `#A85A12` | Link hover, focus outline (about 4.9:1) |
+| `--accent-soft` | `#F0C08A` | Link underlines (decorative only) |
+| `--bg` | `#F8FAFD` | Page |
 | `--col` | `620px` | Column width |
 
 ### Accessibility

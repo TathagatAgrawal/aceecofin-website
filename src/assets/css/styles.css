@@ -1,15 +1,18 @@
 /* Ace Ecofin Advisors: site styles.
    One centred column. Serif headings (Playfair Display), sans-serif text (Inter).
-   Sections are separated by space and a short gold bar only: no full-width lines.
+   Sections are separated by space and a short orange bar only: no full-width lines.
    Design tokens first; change colours and sizes here. */
 
+/* Colours come from the logo: cobalt blue and amber orange on white. */
 :root {
-  --ink: #0B1F3A;          /* deep navy: headings and links */
-  --text: #26334A;         /* body text */
-  --muted: #5A6577;        /* secondary text (5.6:1 on ivory) */
-  --gold: #8B6B2E;         /* accent: gold marks, list dashes, hover, focus (4.7:1 on ivory) */
-  --gold-soft: #CDB88A;    /* link underlines only */
-  --bg: #FAF8F4;           /* ivory page */
+  --ink: #24549A;          /* logo blue: headings, links, button (7.2:1 on page) */
+  --ink-deep: #1D4580;     /* darker logo blue: button hover */
+  --text: #1C2A42;         /* blue-black body text (13.8:1) */
+  --muted: #566278;        /* cool slate secondary text (5.9:1) */
+  --accent: #E08A2E;       /* logo orange: marks and list dashes only, never text (2.6:1) */
+  --accent-deep: #A85A12;  /* deep orange: link hover and focus outline (4.9:1) */
+  --accent-soft: #F0C08A;  /* light orange: link underlines only */
+  --bg: #F8FAFD;           /* white with a trace of the logo's blue */
 
   --font-head: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-body: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -49,14 +52,14 @@ h1, h2, h3, h4, p, ul, dl, dd { margin: 0; }
 h1, h2, h3 { font-family: var(--font-head); color: var(--ink); text-wrap: balance; }
 h1, h2, h3, .details dd { font-variant-numeric: lining-nums; }
 p, li { text-wrap: pretty; }
-a { color: var(--ink); text-decoration-color: var(--gold-soft); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .15s, text-decoration-color .15s; }
-a:hover { color: var(--gold); text-decoration-color: var(--gold); }
-:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 2px; }
-::selection { background: #EADFC6; color: var(--ink); }
+a { color: var(--ink); text-decoration-color: var(--accent-soft); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .15s, text-decoration-color .15s; }
+a:hover { color: var(--accent-deep); text-decoration-color: var(--accent-deep); }
+:focus-visible { outline: 2px solid var(--accent-deep); outline-offset: 4px; border-radius: 2px; }
+::selection { background: #FBE3C8; color: var(--text); }
 
 .skip-link {
   position: absolute; left: 16px; top: -100px; z-index: 10;
-  background: var(--ink); color: #fff; padding: 10px 14px;
+  background: var(--text); color: #fff; padding: 10px 14px;
 }
 .skip-link:focus { top: 16px; color: #fff; }
 .skip-link:hover { color: #fff; }
@@ -74,8 +77,8 @@ a:hover { color: var(--gold); text-decoration-color: var(--gold); }
   font-size: var(--h1); font-weight: 600; line-height: 1.08; letter-spacing: -0.01em;
 }
 .intro__title::after {
-  content: ""; display: block; width: 56px; height: 1px; margin: 28px auto 0;
-  background: var(--gold);
+  content: ""; display: block; width: 56px; height: 2px; margin: 28px auto 0;
+  background: var(--accent);
 }
 .intro__tagline {
   margin: 24px auto 0; max-width: 34ch;
@@ -83,16 +86,27 @@ a:hover { color: var(--gold); text-decoration-color: var(--gold); }
   text-wrap: balance;
 }
 @media (max-width: 480px) { .intro__tagline { font-size: 17px; } }
+.intro__action { margin-top: 32px; }
+
+/* The one filled button: jumps to Contact Us from the top of the page */
+.button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 12px 30px;
+  background: var(--ink); color: #fff;
+  font-size: 16px; font-weight: 600; line-height: 1.2; text-decoration: none;
+  transition: background-color .15s;
+}
+.button:hover { background: var(--ink-deep); color: #fff; }
 
 /* ---------- Sections ---------- */
-.section { padding: 0 0 var(--section-y); }
+.section { padding: 0 0 var(--section-y); scroll-margin-top: 32px; }
 .section__heading {
   font-size: var(--h2); font-weight: 600; line-height: 1.15; letter-spacing: -0.005em;
   margin-bottom: 32px;
 }
 .section__heading::before {
   content: ""; display: block; width: 36px; height: 2px; margin-bottom: 20px;
-  background: var(--gold);
+  background: var(--accent);
 }
 .prose > * + * { margin-top: 1.1em; }
 .prose ul, .prose ol { padding-left: 22px; }
@@ -110,7 +124,7 @@ a:hover { color: var(--gold); text-decoration-color: var(--gold); }
 .list li + li { margin-top: 12px; }
 .list li::before {
   content: ""; position: absolute; left: 2px; top: .8em;
-  width: 12px; height: 1px; background: var(--gold);
+  width: 12px; height: 2px; background: var(--accent);
 }
 .software { margin-top: 24px; }
 .software__label { font-weight: 600; color: var(--ink); margin-right: 4px; }

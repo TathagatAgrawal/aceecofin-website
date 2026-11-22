@@ -6,6 +6,9 @@ permalink: /
   <div class="col">
     <h1 class="intro__title">{{ site.name }}</h1>
     <p class="intro__tagline">{{ site.tagline }}</p>
+    {%- if "contact" in site.sections %}
+    <p class="intro__action"><a class="button" href="#{{ copy.contact.id or 'contact' }}">{{ copy.contact.heading }}</a></p>
+    {%- endif %}
   </div>
 </section>
 {%- for name in site.sections %}
